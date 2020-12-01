@@ -1,0 +1,26 @@
+minimum_cumulusci_version: '3.23.0'
+project:
+    name: EinsteinBotTest
+    package:
+        name: EinsteinBotTest
+        api_version: '50.0'
+    dependencies:
+        - github: 'https://github.com/SalesforceFoundation/EDA'
+    git:
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/EinsteinBotTest/tests
+            options:
+                outputdir: robot/EinsteinBotTest/results
+
+    robot_testdoc:
+        options:
+            path: robot/EinsteinBotTest/tests
+            output: robot/EinsteinBotTest/doc/EinsteinBotTest_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
