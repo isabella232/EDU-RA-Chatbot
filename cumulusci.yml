@@ -1,8 +1,8 @@
 minimum_cumulusci_version: '3.23.0'
 project:
-    name: EinsteinBotTest
+    name: EDU-RA-Chatbot
     package:
-        name: EinsteinBotTest
+        name: EDU-RA-Chatbot
         api_version: '50.0'
     dependencies:
         - github: 'https://github.com/SalesforceFoundation/omega'
@@ -18,14 +18,14 @@ sources:
 tasks:
     robot:
         options:
-            suites: robot/EinsteinBotTest/tests
+            suites: robot/EDU-RA-Chatbot/tests
             options:
-                outputdir: robot/EinsteinBotTest/results
+                outputdir: robot/EDU-RA-Chatbot/results
 
     robot_testdoc:
         options:
-            path: robot/EinsteinBotTest/tests
-            output: robot/EinsteinBotTest/doc/EinsteinBotTest_tests.html
+            path: robot/EDU-RA-Chatbot/tests
+            output: robot/EDU-RA-Chatbot/doc/EDU-RA-Chatbot_tests.html
 
     run_tests:
         options:
