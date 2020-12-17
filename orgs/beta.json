@@ -1,20 +1,28 @@
 {
-  "orgName": "EinsteinBotTest - Beta Test Org",
-  "edition": "Developer",
-  "settings": {
-    "lightningExperienceSettings": {
-      "enableS1DesktopEnabled": true
-    },
-    "chatterSettings": {
-      "enableChatter": true
-    },
-    "userManagementSettings": {
-      "enableNewProfileUI": true
-    },
-    "securitySettings": {
-      "enableAdminLoginAsAnyUser": true,
-      "sessionSettings": {
-        "forceRelogin": false
-      }
-    }  }
+    "orgName": "EDU Bots - Beta Test Org",
+    "edition": "Enterprise",
+    "features": ["DevelopmentWave", "AdmissionsConnectUser"],
+    "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "chatterSettings": {
+            "enableChatter": true
+        },
+        "enhancedNotesSettings": {
+            "enableEnhancedNotes": true
+        },
+        "pathAssistantSettings": {
+            "pathAssistantEnabled": true
+        },
+        "securitySettings": {
+            "enableAdminLoginAsAnyUser":true
+        },
+        "userEngagementSettings": {
+            "enableOrchestrationInSandbox": true,
+            "enableOrgUserAssistEnabled": true,
+            "enableShowSalesforceUserAssist": false
+  }
+
+    }
 }

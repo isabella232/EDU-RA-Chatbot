@@ -5,9 +5,15 @@ project:
         name: EinsteinBotTest
         api_version: '50.0'
     dependencies:
-        - github: 'https://github.com/SalesforceFoundation/EDA'
+        - github: 'https://github.com/SalesforceFoundation/omega'
     git:
     source_format: sfdx
+
+sources:
+    eda:
+        github: 'https://github.com/SalesforceFoundation/eda'
+    omega:
+        github: 'https://github.com/SalesforceFoundation/omega'
 
 tasks:
     robot:
@@ -24,3 +30,12 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 75
+
+flows:
+    dependencies:
+        steps:
+            3:
+                flow: omega:assign_permission_sets
+            4:
+                flow: omega:install_templates_and_fieldsets
+

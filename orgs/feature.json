@@ -1,24 +1,30 @@
 {
-  "orgName": "EinsteinBotTest - Feature Test Org",
-  "edition": "Developer",
-  "settings": {
-    "lightningExperienceSettings": {
-      "enableS1DesktopEnabled": true
-    },
-    "chatterSettings": {
-      "enableChatter": true
-    },
-    "userManagementSettings": {
-      "enableNewProfileUI": true
-    },
-    "securitySettings": {
-      "enableAdminLoginAsAnyUser": true,
-      "sessionSettings": {
-        "forceRelogin": false
-      }
-    },
-    "languageSettings": {
-      "enableTranslationWorkbench": true
-    }
+    "orgName": "EDU Bots - Feature Test Org",
+    "edition": "Developer",
+    "features": ["DevelopmentWave", "AdmissionsConnectUser", "ForceComPlatform"],
+    "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "chatterSettings": {
+            "enableChatter": true
+        },
+        "languageSettings": {
+            "enableTranslationWorkbench": true
+        },
+        "enhancedNotesSettings": {
+            "enableEnhancedNotes": true
+        },
+        "pathAssistantSettings": {
+            "pathAssistantEnabled": true
+        },
+        "securitySettings": {
+            "enableAdminLoginAsAnyUser":true
+        },
+        "userEngagementSettings": {
+            "enableOrchestrationInSandbox": true,
+            "enableOrgUserAssistEnabled": true,
+            "enableShowSalesforceUserAssist": false
   }
+    }
 }
