@@ -1,33 +1,56 @@
 {
     "orgName": "EDU Bots - Dev Org",
     "edition": "Developer",
-    "features": ["DevelopmentWave", "AdmissionsConnectUser", "ForceComPlatform"],
+    "features": [
+        "DevelopmentWave",
+        "AdmissionsConnectUser",
+        "ForceComPlatform",
+        "ServiceCloud",
+        "Chatbot",
+        "Communities",
+        "Knowledge",
+        "LiveAgent",
+        "LightningServiceConsole",
+        "LiveMessage"
+    ],
     "settings": {
-        "lightningExperienceSettings": {
-            "enableS1DesktopEnabled": true
+        "botSettings": {
+            "enableBots": true
         },
         "chatterSettings": {
             "enableChatter": true
         },
-        "languageSettings": {
-            "enableTranslationWorkbench": true
+        "communitiesSettings": {
+            "enableNetworksEnabled": true
         },
         "enhancedNotesSettings": {
             "enableEnhancedNotes": true
+        },
+        "languageSettings": {
+            "enableTranslationWorkbench": true
+        },
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        },
+        "liveAgentSettings": {
+            "enableLiveAgent": true
+        },
+        "mobileSettings": {
+            "enableS1EncryptedStoragePref2": false
+        },
+        "omniChannelSettings": {
+            "enableOmniChannel": true
         },
         "pathAssistantSettings": {
             "pathAssistantEnabled": true
         },
         "securitySettings": {
-            "enableAdminLoginAsAnyUser":true
+            "enableAdminLoginAsAnyUser": true
         },
         "userEngagementSettings": {
             "enableOrchestrationInSandbox": true,
             "enableOrgUserAssistEnabled": true,
             "enableShowSalesforceUserAssist": false
-        },
-        "mobileSettings": {
-            "enableS1EncryptedStoragePref2": false
         }
     }
 }
