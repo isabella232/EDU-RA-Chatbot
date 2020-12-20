@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <botMlDomain>
+        <label>Recruiting and Admissions</label>
+        <mlIntents>
+            <developerName>Check_the_status_of_an_existing_issue_Intent</developerName>
+            <label>Check the status of an existing issue</label>
+            <mlIntentUtterances>
+                <utterance>Check the status of an existing issue</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Case lookup</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Find case</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Look up case</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>My case</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Case status</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Existing case</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Check_the_status_of_an_order_Intent</developerName>
+            <label>Check the status of an order</label>
+            <mlIntentUtterances>
+                <utterance>Check the status of an order</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Look up order</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Find order</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Existing order</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Order lookup</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Order status</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>My order</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Connect_with_sales_Intent</developerName>
+            <label>Connect with sales</label>
+            <mlIntentUtterances>
+                <utterance>Connect with sales</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Sales</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Sales department</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Talk to sales</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Sales dept</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Salesperson</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>End_Chat_Intent</developerName>
+            <label>End Chat</label>
+            <mlIntentUtterances>
+                <utterance>Bye</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>End chat</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Cheers</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Goodbye</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Good-bye</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Take care</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Main_Menu_Intent</developerName>
+            <label>Main Menu</label>
+            <mlIntentUtterances>
+                <utterance>Main Menu</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Menu</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Restart</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Go Back</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Start Over</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Report_an_issue_Intent</developerName>
+            <label>Report an issue</label>
+            <mlIntentUtterances>
+                <utterance>Report an issue</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Create case</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>New issue</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>New case</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Issue</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Create a case</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Transfer_To_Agent_Intent</developerName>
+            <label>Transfer to agent</label>
+            <mlIntentUtterances>
+                <utterance>Transfer to agent</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Escalate</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Transfer</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Talk to agent</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Agent</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>Person</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Case_Number_Entity</developerName>
+            <extractionRegex>^[a-zA-Z0-9_.-]*$</extractionRegex>
+            <extractionType>Pattern</extractionType>
+            <label>Case Number</label>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Email_Address_Entity</developerName>
+            <extractionRegex>\b[\w\.\w]*+@\w+?\.[a-zA-Z]{2,3}\b</extractionRegex>
+            <extractionType>Pattern</extractionType>
+            <label>Email</label>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Goodbye_Entity</developerName>
+            <extractionType>Value</extractionType>
+            <label>Goodbye</label>
+            <mlSlotClassValues>
+                <synonymGroup>
+                    <languages>en_US</languages>
+                    <terms>Bye</terms>
+                    <terms>See you</terms>
+                    <terms>Cya</terms>
+                    <terms>Later</terms>
+                    <terms>Ciao</terms>
+                    <terms>Adios</terms>
+                    <terms>Cheerio</terms>
+                    <terms>Cheers</terms>
+                    <terms>Adieu</terms>
+                    <terms>Toodle-oo</terms>
+                    <terms>So long</terms>
+                    <terms>Ta Ta</terms>
+                    <terms>Peace</terms>
+                </synonymGroup>
+                <value>Goodbye</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Order_Number_Entity</developerName>
+            <extractionRegex>^[a-zA-Z0-9_.-]*$</extractionRegex>
+            <extractionType>Pattern</extractionType>
+            <label>Order Number</label>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Phone_Number_Entity</developerName>
+            <extractionRegex>\b[+(\s]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\.\/0-9]*\b</extractionRegex>
+            <extractionType>Pattern</extractionType>
+            <label>Phone Number</label>
+        </mlSlotClasses>
+        <name>Recruiting_and_Admissions</name>
+    </botMlDomain>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.ChatKey</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Text</dataType>
+        <developerName>ChatKey</developerName>
+        <label>Chat Key</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.ContactId</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>ContactId</developerName>
+        <label>Contact Id</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.LiveChatVisitorId</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>EndUserId</developerName>
+        <label>End User Id</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.Id</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>RoutableId</developerName>
+        <label>Routable Id</label>
+    </contextVariables>
+    <description>A simple bot that helps your customers with common sales and service use cases.</description>
+    <label>Recruiting and Admissions</label>
+    <logPrivateConversationData>true</logPrivateConversationData>
+</Bot>
