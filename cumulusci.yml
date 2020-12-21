@@ -30,6 +30,34 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 75
+    
+    test_data_managed_org:
+        description: Loads a basic data set into orgs with the Admissions Connect managed package and namespaced scratch orgs for most EDA objects
+        class_path: cumulusci.tasks.bulkdata.LoadData
+        group: "Data Operations"
+        options:
+            sql_path: datasets/dev/sample_data.sql
+            mapping: datasets/dev/mapping.managed.yml
+
+
+    load_document_files:
+        group: "Omega: Custom Data Tasks"
+        description: Loads document files to Salesforce
+        class_path: tasks.load_document_files.LoadDocumentFiles
+        options:
+            document_file_dir: "datasets/dev/document_files"
+    
+    deploy_omega_config:
+        description: Deploys configuration for Development from /unpackaged/config/dev
+        class_path: cumulusci.tasks.salesforce.Deploy
+        group: "Salesforce Metadata"
+        options:
+            namespace_inject: randa
+            path: unpackaged/config/dev
+            unmanaged: false
+    
+
+
 
 flows:
     dependencies:
@@ -38,4 +66,29 @@ flows:
                 flow: omega:assign_permission_sets
             4:
                 flow: omega:install_templates_and_fieldsets
+            8:
+                flow: build_ac_data
+
+    build_ac_data:
+        description: Build test data for Action Plans
+        steps:
+            2:
+                task: deploy_omega_config
+            4:
+                task: test_data_managed_org 
+            6:
+                task: load_document_files
+            8:
+                task: omega:deploy_optional_metadata
+            10:
+                task: omega:execute_actionplantemplate_apex
+            12:
+                task: omega:execute_actionplans_apex
+            14:
+                task: omega:execute_actionplanmapping_apex
+            16:
+                task: omega:execute_actionplantemplate_apex
+                options:
+                    apex: buildActionPlanTemplates(False);
+
 

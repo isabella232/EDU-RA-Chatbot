@@ -1,0 +1,150 @@
+Insert Account:
+    sf_object: Account
+    table: Account
+    fields:
+        Id: sf_id
+        Name: Name
+        RecordTypeId: RecordTypeId
+    lookups:
+        ParentId:
+            table: Account
+            after: Insert Account
+        hed__Primary_Contact__c:
+            table: Contact
+            after: Insert Contact
+Insert Contact:
+    sf_object: Contact
+    table: Contact
+    fields:
+        Id: sf_id
+        FirstName: FirstName
+        LastName: LastName
+        hed__Chosen_Full_Name__c: hed__Chosen_Full_Name__c
+        hed__Citizenship__c: hed__Citizenship__c
+        hed__Country_of_Origin__c: hed__Country_of_Origin__c
+        hed__Dual_Citizenship__c: hed__Dual_Citizenship__c
+        hed__Ethnicity__c: hed__Ethnicity__c
+        hed__Gender__c: hed__Gender__c
+        hed__Race__c: hed__Race__c
+    lookups:
+        AccountId:
+            table: Account
+Insert hed__Affiliation__c:
+    sf_object: hed__Affiliation__c
+    table: hed__Affiliation__c
+    fields:
+        Id: sf_id
+        hed__Description__c: hed__Description__c
+        hed__EndDate__c: hed__EndDate__c
+        hed__Primary__c: hed__Primary__c
+        hed__Role__c: hed__Role__c
+        hed__StartDate__c: hed__StartDate__c
+        hed__Status__c: hed__Status__c
+    lookups:
+        hed__Account__c:
+            table: Account
+        hed__Contact__c:
+            table: Contact
+Insert hed__Term__c:
+    sf_object: hed__Term__c
+    table: hed__Term__c
+    fields:
+        Id: sf_id
+        Name: Name
+        hed__End_Date__c: hed__End_Date__c
+        hed__Grading_Period_Sequence__c: hed__Grading_Period_Sequence__c
+        hed__Instructional_Days__c: hed__Instructional_Days__c
+        hed__Start_Date__c: hed__Start_Date__c
+        hed__Type__c: hed__Type__c
+    lookups:
+        hed__Account__c:
+            table: Account
+        hed__Parent_Term__c:
+            table: hed__Term__c
+            after: Insert hed__Term__c
+Insert hed__Application__c:
+    sf_object: hed__Application__c
+    table: hed__Application__c
+    fields:
+        Id: sf_id
+        Application_Plan__c: Application_Plan__c
+        Application_Review_Status__c: Application_Review_Status__c
+        Checklist_Completion__c: Checklist_Completion__c
+        hed__Applicant_Decision_Date__c: hed__Applicant_Decision_Date__c
+        hed__Application_Date__c: hed__Application_Date__c
+        hed__Application_Decision_Date__c: hed__Application_Decision_Date__c
+        hed__Application_Status__c: hed__Application_Status__c
+        hed__Application_Type__c: hed__Application_Type__c
+    lookups:
+        hed__Applicant__c:
+            table: Contact
+        hed__Applying_To__c:
+            table: Account
+        hed__Preparer__c:
+            table: Contact
+        hed__Term__c:
+            table: hed__Term__c
+Insert Application_Review__c:
+    sf_object: Application_Review__c
+    table: Application_Review__c
+    fields:
+        Id: sf_id
+        Admissions_Recommendation__c: Admissions_Recommendation__c
+        Comments__c: Comments__c
+        Due_Date__c: Due_Date__c
+        End__c: End__c
+        Start__c: Start__c
+    lookups:
+        Application__c:
+            table: hed__Application__c
+Insert hed__Test__c:
+    sf_object: hed__Test__c
+    table: hed__Test__c
+    fields:
+        Id: sf_id
+        hed__Date_Received__c: hed__Date_Received__c
+        hed__Source__c: hed__Source__c
+        hed__Test_Date__c: hed__Test_Date__c
+        hed__Test_Type__c: hed__Test_Type__c
+    lookups:
+        hed__Contact__c:
+            table: Contact
+Insert hed__Test_Score__c:
+    sf_object: hed__Test_Score__c
+    table: hed__Test_Score__c
+    fields:
+        Id: sf_id
+        hed__Percentile__c: hed__Percentile__c
+        hed__Score__c: hed__Score__c
+        hed__Subject_Area__c: hed__Subject_Area__c
+    lookups:
+        hed__Test__c:
+            table: hed__Test__c
+Insert hed__Education_History__c:
+    sf_object: hed__Education_History__c
+    table: hed__Education_History__c
+    fields:
+        Id: sf_id
+        hed__Class_Rank__c: hed__Class_Rank__c
+        hed__Class_Size__c: hed__Class_Size__c
+        hed__GPA__c: hed__GPA__c
+        hed__GPA_Scale_Reporting__c: hed__GPA_Scale_Reporting__c
+        hed__GPA_Scale_Type__c: hed__GPA_Scale_Type__c
+        hed__Educational_Institution_Name__c: hed__Educational_Institution_Name__c
+    lookups:
+        hed__Contact__c:
+            table: Contact
+        hed__Account__c:
+            table: Account
+Insert hed__Relationship__c:
+    sf_object: hed__Relationship__c
+    table: hed__Relationship__c
+    fields:
+        Id: sf_id
+        hed__Type__c: hed__Type__c
+        hed__Status__c: hed__Status__c
+    lookups:
+        hed__Contact__c:
+            table: Contact
+        hed__RelatedContact__c:
+            table: Contact
