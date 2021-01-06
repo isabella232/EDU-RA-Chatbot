@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <description>Receives the Counter Variable from the Chat to begin the Counter</description>
+        <name>Increment_Count_of_Attempt_Variable</name>
+        <label>Increment Count of Attempt Variable</label>
+        <locationX>182</locationX>
+        <locationY>158</locationY>
+        <assignmentItems>
+            <assignToReference>varAttemptCount</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Has_the_Attempt_Count_reached_the_threshold</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>sets the Acceptable return message for the Chatbot</description>
+        <name>return_Message</name>
+        <label>return Message</label>
+        <locationX>50</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>varReturnMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>OK</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>sets the Acceptable return message for the Chatbot</description>
+        <name>return_Message_0</name>
+        <label>return Message</label>
+        <locationX>314</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>varReturnMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>TooMuch</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Checks to see if the attempt count for the flow has exceeded the acceptable threshold.</description>
+        <name>Has_the_Attempt_Count_reached_the_threshold</name>
+        <label>Has the Attempt Count reached the threshold?</label>
+        <locationX>182</locationX>
+        <locationY>278</locationY>
+        <defaultConnector>
+            <targetReference>return_Message_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Too Many Attempts</defaultConnectorLabel>
+        <rules>
+            <name>It_s_OK</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varAttemptCount</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>3.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>return_Message</targetReference>
+            </connector>
+            <label>It&apos;s OK</label>
+        </rules>
+    </decisions>
+    <description>The simple counter takes the Attempt Counter variable from the Chatbot, and will increment the variable, then check it against a threshold of &apos;acceptable attempts&apos;.  This is set in the Decision Element.</description>
+    <interviewLabel>R&amp;A Bot: Attempt Counter {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>R&amp;A Bot: Attempt Counter</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Increment_Count_of_Attempt_Variable</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Count of the number of attempts made by the user</description>
+        <name>varAttemptCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <description>this is the return message</description>
+        <name>varReturnMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>
