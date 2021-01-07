@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>v1</fullName>
+    <botDialogGroups>
+        <developerName>Application_Status</developerName>
+        <label>Application Status</label>
+    </botDialogGroups>
     <botDialogs>
         <botSteps>
             <botMessages>
@@ -177,7 +181,7 @@ What can I help you with today?</message>
                     <fieldName>Knowledge__kav.Summary</fieldName>
                 </lookupFields>
                 <lookupFields>
-                    <fieldName>Knowledge__kav.Community_URL__c</fieldName>
+                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
                 </lookupFields>
                 <lookupFields>
                     <fieldName>Knowledge__kav.UrlName</fieldName>
@@ -362,7 +366,30 @@ You can find out more here: {!Knowledge.Community_URL__c}{!Knowledge.UrlName}</m
     </botDialogs>
     <botDialogs>
         <botSteps>
-            <type>Wait</type>
+            <botMessages>
+                <message>Here are the options for connecting with an admissions counsellor:
+ 
+Reach out to  the _____ dept here or follow this link: ________</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Is there anything else I can help you with?</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Something_Else</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>End_Chat</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
         </botSteps>
         <developerName>Speak_with_an_Admissions_Counselor</developerName>
         <label>Speak with an Admissions Counselor</label>
@@ -387,6 +414,7 @@ You can find out more here: {!Knowledge.Community_URL__c}{!Knowledge.UrlName}</m
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
+        <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
             <botSteps>
                 <botVariableOperation>
@@ -434,7 +462,7 @@ Can you tell me what that email address is?</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Email_Lookup</invocationActionName>
+                    <invocationActionName>Admission_Test</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varEmail</parameterName>
@@ -443,15 +471,15 @@ Can you tell me what that email address is?</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varEmail</parameterName>
-                        <type>Output</type>
-                        <variableName>Email_Address</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
                         <parameterName>varApplicationStatus</parameterName>
                         <type>Output</type>
                         <variableName>Application_Status</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varEmail</parameterName>
+                        <type>Output</type>
+                        <variableName>Email_Address</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
@@ -466,6 +494,42 @@ Can you tell me what that email address is?</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
+            <botStepConditions>
+                <leftOperandName>Application_Status</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>In Progress</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Return_Checklist_Status_Knowledge_Article</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>Application_Status</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>Complete</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Return_Application_Status_Knowledge_Article</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
             <botNavigation>
                 <botNavigationLinks>
                     <targetBotDialog>Main_Menu</targetBotDialog>
@@ -477,6 +541,72 @@ Can you tell me what that email address is?</message>
         <description>simple, email-based flow to establish an identity</description>
         <developerName>Establish_Identity_simple</developerName>
         <label>Establish Identity (simple)</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botDialogGroup>Application_Status</botDialogGroup>
+        <botSteps>
+            <botMessages>
+                <message>Here is what to expect now that your application is complete</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Is there anything else I can assist you with?</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Something_Else</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>End_Chat</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
+        </botSteps>
+        <developerName>Return_Application_Status_Knowledge_Article</developerName>
+        <label>Return Application Status + Knowledge Article</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botDialogGroup>Application_Status</botDialogGroup>
+        <botSteps>
+            <botMessages>
+                <message>Here are the next steps as your application is being processed.</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Is there anything else I can assist you with?</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Something_Else</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>End_Chat</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
+        </botSteps>
+        <developerName>Return_Checklist_Status_Knowledge_Article</developerName>
+        <label>Return Checklist Status + Knowledge Article</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <conversationSystemDialogs>

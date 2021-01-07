@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <description>this sets a variable which is consumed by the R&amp;A Bot, so that the menu item response can jump straight to the Article.</description>
+        <name>set_Knowledge_Variable_Application_Deadlines</name>
+        <label>set Knowledge Variable: Application Deadlines</label>
+        <locationX>175</locationX>
+        <locationY>221</locationY>
+        <assignmentItems>
+            <assignToReference>varKnowledgeArticleSearch</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Application Deadlines</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Allows the R&amp;A Bot to preset a response for Application Deadlines</description>
+    <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Deadlines {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>R&amp;A Bot: Knowledge Variable - Application Deadlines</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>set_Knowledge_Variable_Application_Deadlines</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varKnowledgeArticleSearch</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>
