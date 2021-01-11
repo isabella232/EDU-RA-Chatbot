@@ -11,12 +11,12 @@
             <assignToReference>varKnowledgeArticleSearch</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Admissions Counselor</stringValue>
+                <stringValue>Application Complete - Next Steps</stringValue>
             </value>
         </assignmentItems>
     </assignments>
-    <interviewLabel>R&amp;A Bot: Knowledge Variable - Admissions Counselor {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>R&amp;A Bot: Knowledge Variable - Admissions Counselor</label>
+    <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Complete {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>R&amp;A Bot: Knowledge Variable - Application Complete</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>

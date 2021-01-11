@@ -5,19 +5,18 @@
         <description>this sets a variable which is consumed by the R&amp;A Bot, so that the menu item response can jump straight to the Article.</description>
         <name>set_Knowledge_Variable_Application_Deadlines</name>
         <label>set Knowledge Variable: Application Deadlines</label>
-        <locationX>175</locationX>
-        <locationY>221</locationY>
+        <locationX>176</locationX>
+        <locationY>233</locationY>
         <assignmentItems>
             <assignToReference>varKnowledgeArticleSearch</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Application Deadlines</stringValue>
+                <stringValue>Checklist Items</stringValue>
             </value>
         </assignmentItems>
     </assignments>
-    <description>Allows the R&amp;A Bot to preset a response for Application Deadlines</description>
-    <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Deadlines {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>R&amp;A Bot: Knowledge Variable - Application Deadlines</label>
+    <interviewLabel>R&amp;A Bot: Knowledge Variable - Application In Progress {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>R&amp;A Bot: Knowledge Variable - Application In Progress</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>

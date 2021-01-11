@@ -3,7 +3,7 @@
     <deployments/>
     <enableQueue>false</enableQueue>
     <isActive>true</isActive>
-    <label>Alternate Bot</label>
+    <label>Admissions Agents Scratch</label>
     <optionsCustomRoutingIsEnabled>false</optionsCustomRoutingIsEnabled>
     <optionsHasChasitorIdleTimeout>false</optionsHasChasitorIdleTimeout>
     <optionsHasInviteAfterAccept>false</optionsHasInviteAfterAccept>

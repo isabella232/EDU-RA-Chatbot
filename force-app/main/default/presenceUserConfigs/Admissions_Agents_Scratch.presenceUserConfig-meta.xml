@@ -12,5 +12,5 @@
     <enableDeclineReason>false</enableDeclineReason>
     <enableDisconnectSound>false</enableDisconnectSound>
     <enableRequestSound>false</enableRequestSound>
-    <label>Alternate Bot</label>
+    <label>Admissions Agents Scratch</label>
 </PresenceUserConfig>

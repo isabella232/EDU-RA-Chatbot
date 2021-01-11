@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Snapins_Case_PrechatQuickAction_08hS00000004CSr_1609970729172</description>
+    <description>Snapins_Case_PrechatQuickAction_08hS00000004CT1_1610126640752</description>
     <fieldOverrides>
         <field>Origin</field>
         <literalValue>Web</literalValue>
@@ -9,7 +9,7 @@
         <field>Status</field>
         <literalValue>New</literalValue>
     </fieldOverrides>
-    <label>Snapins_Case_PrechatQuickAction_08hS00000004CSr_1609970729172</label>
+    <label>Snapins_Case_PrechatQuickAction_08hS00000004CT1_1610126640752</label>
     <optionsCreateFeedItem>false</optionsCreateFeedItem>
     <quickActionLayout>
         <layoutSectionStyle>TwoColumnsTopToBottom</layoutSectionStyle>

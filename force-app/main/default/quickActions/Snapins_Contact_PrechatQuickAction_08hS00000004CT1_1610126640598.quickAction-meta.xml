@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Snapins_Contact_PrechatQuickAction_08hS00000004CSr_1609970728620</description>
-    <label>Snapins_Contact_PrechatQuickAction_08hS00000004CSr_1609970728620</label>
+    <description>Snapins_Contact_PrechatQuickAction_08hS00000004CT1_1610126640598</description>
+    <label>Snapins_Contact_PrechatQuickAction_08hS00000004CT1_1610126640598</label>
     <optionsCreateFeedItem>false</optionsCreateFeedItem>
     <quickActionLayout>
         <layoutSectionStyle>TwoColumnsTopToBottom</layoutSectionStyle>

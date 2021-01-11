@@ -5,6 +5,10 @@
         <developerName>Application_Status</developerName>
         <label>Application Status</label>
     </botDialogGroups>
+    <botDialogGroups>
+        <developerName>Confused_Dialogues</developerName>
+        <label>Confused Dialogues</label>
+    </botDialogGroups>
     <botDialogs>
         <botSteps>
             <botMessages>
@@ -61,6 +65,7 @@ What can I help you with today?</message>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
+        <botDialogGroup>Confused_Dialogues</botDialogGroup>
         <botSteps>
             <botMessages>
                 <message>Sorry, I’m still learning. I’m afraid I didn’t understand that, can you please try again?</message>
@@ -155,19 +160,17 @@ What can I help you with today?</message>
         </botSteps>
         <botSteps>
             <botVariableOperation>
-                <botMessages>
-                    <message>How can I assist you with the application deadlines?</message>
-                </botMessages>
-                <botVariableOperands>
-                    <disableAutoFill>true</disableAutoFill>
-                    <sourceName>_Text</sourceName>
-                    <sourceType>StandardMlSlotClass</sourceType>
-                    <targetName>AppDeadlineQuestion</targetName>
-                    <targetType>ConversationVariable</targetType>
-                </botVariableOperands>
-                <optionalCollect>false</optionalCollect>
-                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
-                <type>Collect</type>
+                <botInvocation>
+                    <invocationActionName>R_A_Bot_Knowledge_Variable_Application_Deadlines</invocationActionName>
+                    <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>varKnowledgeArticleSearch</parameterName>
+                        <type>Output</type>
+                        <variableName>AppDeadlineQuestion</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
             </botVariableOperation>
             <type>VariableOperation</type>
         </botSteps>
@@ -177,21 +180,19 @@ What can I help you with today?</message>
                 <lookupFields>
                     <fieldName>Knowledge__kav.Title</fieldName>
                 </lookupFields>
-                <lookupFields>
-                    <fieldName>Knowledge__kav.Summary</fieldName>
-                </lookupFields>
-                <lookupFields>
-                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
-                </lookupFields>
-                <lookupFields>
-                    <fieldName>Knowledge__kav.UrlName</fieldName>
-                </lookupFields>
                 <maxLookupResults>3</maxLookupResults>
                 <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
                 <sourceVariableType>ConversationVariable</sourceVariableType>
                 <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
             </conversationRecordLookup>
             <type>RecordLookup</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>{!Knowledge_Articles[0].Chat_Bot_URL}
+{!AppDeadlineKnowledgeResults}</message>
+            </botMessages>
+            <type>Message</type>
         </botSteps>
         <botSteps>
             <botStepConditions>
@@ -211,7 +212,7 @@ What can I help you with today?</message>
         <botSteps>
             <botVariableOperation>
                 <botMessages>
-                    <message>Thanks. I&apos;ve searched our knowledge base and found articles that may help you. Select from the following if you would like to learn more:</message>
+                    <message>I&apos;ve searched our knowledge base and found articles that may help you with application deadlines. Select from the following if you would like to learn more:</message>
                 </botMessages>
                 <botVariableOperands>
                     <disableAutoFill>true</disableAutoFill>
@@ -222,7 +223,7 @@ What can I help you with today?</message>
                 </botVariableOperands>
                 <invalidInputBotNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Confused</targetBotDialog>
+                        <targetBotDialog>Confused_Knowledge_Search</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </invalidInputBotNavigation>
@@ -242,7 +243,7 @@ What can I help you with today?</message>
 
 Selected Article Summary: {!Knowledge.Summary}
 
-You can find out more here: {!Knowledge.Community_URL__c}{!Knowledge.UrlName}</message>
+You can find out more here: {!Knowledge.Chat_Bot_URL}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -367,9 +368,83 @@ You can find out more here: {!Knowledge.Community_URL__c}{!Knowledge.UrlName}</m
     <botDialogs>
         <botSteps>
             <botMessages>
-                <message>Here are the options for connecting with an admissions counsellor:
- 
-Reach out to  the _____ dept here or follow this link: ________</message>
+                <message>To speak with an admissions counsellor, please visit the booking site at www.yourschool.edu/admissions. For additional help, I will provide you with you knowledge resources related to that process.</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>R_A_Bot_Knowledge_Variable_Admissions_Counselor</invocationActionName>
+                    <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>varKnowledgeArticleSearch</parameterName>
+                        <type>Output</type>
+                        <variableName>AppDeadlineQuestion</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <conversationRecordLookup>
+                <SObjectType>Knowledge__kav</SObjectType>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Title</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Summary</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.UrlName</fieldName>
+                </lookupFields>
+                <maxLookupResults>1</maxLookupResults>
+                <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
+            </conversationRecordLookup>
+            <type>RecordLookup</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>Here are the articles I found that may help you. Select from the following if you would like to learn more:</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Object</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>Knowledge</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <invalidInputBotNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Confused</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </invalidInputBotNavigation>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyOptionTemplate>{!Title}</quickReplyOptionTemplate>
+                <quickReplyType>Dynamic</quickReplyType>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <sourceVariableName>AppDeadlineKnowledgeResults</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Selected Article Title: {!Knowledge.Title}
+
+Selected Article Summary: {!Knowledge.Summary}
+
+You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs1.force.com/s/article/Connect-to-an-Admissions-Conselor</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -471,15 +546,33 @@ Can you tell me what that email address is?</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
+                        <parameterName>varEmail</parameterName>
+                        <type>Output</type>
+                        <variableName>Email_Address</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varActionPlanName</parameterName>
+                        <type>Output</type>
+                        <variableName>ActionPlanName</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varActionPlanStatus</parameterName>
+                        <type>Output</type>
+                        <variableName>ActionPlanStatus</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
                         <parameterName>varApplicationStatus</parameterName>
                         <type>Output</type>
                         <variableName>Application_Status</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varEmail</parameterName>
+                        <parameterName>varApplicationChecklistCompletion</parameterName>
                         <type>Output</type>
-                        <variableName>Email_Address</variableName>
+                        <variableName>ApplicationChecklistCompletion</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
@@ -552,6 +645,82 @@ Can you tell me what that email address is?</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>R_A_Bot_Knowledge_Variable_Application_Complete</invocationActionName>
+                    <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>varKnowledgeArticleSearch</parameterName>
+                        <type>Output</type>
+                        <variableName>AppDeadlineQuestion</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <conversationRecordLookup>
+                <SObjectType>Knowledge__kav</SObjectType>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Title</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Summary</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.UrlName</fieldName>
+                </lookupFields>
+                <maxLookupResults>3</maxLookupResults>
+                <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
+            </conversationRecordLookup>
+            <type>RecordLookup</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>Here are the articles I found that may help you. Select from the following if you would like to learn more:</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Object</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>Knowledge</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <invalidInputBotNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Confused</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </invalidInputBotNavigation>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyOptionTemplate>{!Title}</quickReplyOptionTemplate>
+                <quickReplyType>Dynamic</quickReplyType>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <sourceVariableName>AppDeadlineKnowledgeResults</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Selected Article Title: {!Knowledge.Title}
+
+Selected Article Summary: {!Knowledge.Summary}
+
+You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs1.force.com/s/article/Application-Complete-Next-Steps</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
             <botMessages>
                 <message>Is there anything else I can assist you with?</message>
             </botMessages>
@@ -586,6 +755,90 @@ Can you tell me what that email address is?</message>
         </botSteps>
         <botSteps>
             <botMessages>
+                <message>The Checklist Completion for you application is {!ApplicationChecklistCompletion}
+
+The step {!ActionPlanName} is currently listed as {!ActionPlanStatus}.</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>R_A_Bot_Knowledge_Variable_Application_In_Progress</invocationActionName>
+                    <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>varKnowledgeArticleSearch</parameterName>
+                        <type>Output</type>
+                        <variableName>AppDeadlineQuestion</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <conversationRecordLookup>
+                <SObjectType>Knowledge__kav</SObjectType>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Title</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Summary</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.UrlName</fieldName>
+                </lookupFields>
+                <maxLookupResults>3</maxLookupResults>
+                <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
+            </conversationRecordLookup>
+            <type>RecordLookup</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>Here are the articles I found that may help you as your application is being processed. Select from the following if you would like to learn more:</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Object</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>Knowledge</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <invalidInputBotNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Confused</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </invalidInputBotNavigation>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyOptionTemplate>{!Title}</quickReplyOptionTemplate>
+                <quickReplyType>Dynamic</quickReplyType>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <sourceVariableName>AppDeadlineKnowledgeResults</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Selected Article Title: {!Knowledge.Title}
+
+Selected Article Summary: {!Knowledge.Summary}
+
+You can find out more here: {!Knowledge.Chat_Bot_URL__c}</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
                 <message>Is there anything else I can assist you with?</message>
             </botMessages>
             <type>Message</type>
@@ -609,10 +862,35 @@ Can you tell me what that email address is?</message>
         <label>Return Checklist Status + Knowledge Article</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
+    <botDialogs>
+        <botDialogGroup>Confused_Dialogues</botDialogGroup>
+        <botSteps>
+            <botMessages>
+                <message>Sorry, we may not have a knowledge resource on that topic. Can you please try to search again?</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Confused_Knowledge_Search</developerName>
+        <label>Confused - Knowledge Search</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
     <conversationSystemDialogs>
         <dialog>No_Agent_Available</dialog>
         <type>TransferFailed</type>
     </conversationSystemDialogs>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>ActionPlanName</developerName>
+        <label>ActionPlanName</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>ActionPlanStatus</developerName>
+        <label>ActionPlanStatus</label>
+    </conversationVariables>
     <conversationVariables>
         <collectionType>List</collectionType>
         <dataType>Object</dataType>
@@ -623,6 +901,11 @@ Can you tell me what that email address is?</message>
         <dataType>Text</dataType>
         <developerName>AppDeadlineQuestion</developerName>
         <label>AppDeadlineQuestion</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <developerName>ApplicationChecklistCompletion</developerName>
+        <label>ApplicationChecklistCompletion</label>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
