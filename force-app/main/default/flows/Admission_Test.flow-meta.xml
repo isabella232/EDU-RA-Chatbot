@@ -90,6 +90,19 @@
         </connector>
     </assignments>
     <assignments>
+        <name>Set_Duplicate_Contacts_2_10</name>
+        <label>Set Duplicate Contacts (2-10)</label>
+        <locationX>1106</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>varTwoToTenContacts</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Two To Ten Contacts</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
         <name>set_No_Contacts_Found</name>
         <label>set No Contacts Found</label>
         <locationX>50</locationX>
@@ -108,6 +121,9 @@
         <label>action based on the Contact Count</label>
         <locationX>578</locationX>
         <locationY>398</locationY>
+        <defaultConnector>
+            <targetReference>Set_Duplicate_Contacts_2_10</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Between 2-10 contacts found</defaultConnectorLabel>
         <rules>
             <name>No_Records_found</name>
@@ -431,5 +447,12 @@
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varTwoToTenContacts</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
     </variables>
 </Flow>

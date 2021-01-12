@@ -121,7 +121,7 @@ What can I help you with today?</message>
     <botDialogs>
         <botSteps>
             <botMessages>
-                <message>Got it.</message>
+                <message>Got it. Let me see how I can help you with application deadlines.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -180,19 +180,18 @@ What can I help you with today?</message>
                 <lookupFields>
                     <fieldName>Knowledge__kav.Title</fieldName>
                 </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Summary</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
+                </lookupFields>
                 <maxLookupResults>3</maxLookupResults>
                 <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
                 <sourceVariableType>ConversationVariable</sourceVariableType>
                 <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
             </conversationRecordLookup>
             <type>RecordLookup</type>
-        </botSteps>
-        <botSteps>
-            <botMessages>
-                <message>{!Knowledge_Articles[0].Chat_Bot_URL}
-{!AppDeadlineKnowledgeResults}</message>
-            </botMessages>
-            <type>Message</type>
         </botSteps>
         <botSteps>
             <botStepConditions>
@@ -210,47 +209,21 @@ What can I help you with today?</message>
             <type>Group</type>
         </botSteps>
         <botSteps>
-            <botVariableOperation>
-                <botMessages>
-                    <message>I&apos;ve searched our knowledge base and found articles that may help you with application deadlines. Select from the following if you would like to learn more:</message>
-                </botMessages>
-                <botVariableOperands>
-                    <disableAutoFill>true</disableAutoFill>
-                    <sourceName>_Object</sourceName>
-                    <sourceType>StandardMlSlotClass</sourceType>
-                    <targetName>Knowledge</targetName>
-                    <targetType>ConversationVariable</targetType>
-                </botVariableOperands>
-                <invalidInputBotNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Confused_Knowledge_Search</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </invalidInputBotNavigation>
-                <optionalCollect>false</optionalCollect>
-                <quickReplyOptionTemplate>{!Title}</quickReplyOptionTemplate>
-                <quickReplyType>Dynamic</quickReplyType>
-                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
-                <sourceVariableName>AppDeadlineKnowledgeResults</sourceVariableName>
-                <sourceVariableType>ConversationVariable</sourceVariableType>
-                <type>Collect</type>
-            </botVariableOperation>
-            <type>VariableOperation</type>
+            <botMessages>
+                <message>{!AppDeadlineKnowledgeResults[0].Summary}.</message>
+            </botMessages>
+            <type>Message</type>
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Selected Article Title: {!Knowledge.Title}
-
-Selected Article Summary: {!Knowledge.Summary}
-
-You can find out more here: {!Knowledge.Chat_Bot_URL}</message>
+                <message>You can also find more details by following this link: {!AppDeadlineKnowledgeResults[0].Chat_Bot_URL__c}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <botVariableOperation>
                 <botMessages>
-                    <message>Does this help you?</message>
+                    <message>Was this helpful?</message>
                 </botMessages>
                 <botQuickReplyOptions>
                     <literalValue>Yes</literalValue>
@@ -281,7 +254,7 @@ You can find out more here: {!Knowledge.Chat_Bot_URL}</message>
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>I&apos;m sorry. Let me see if I can connect you with an admission counselor for assistance.</message>
+                    <message>I&apos;m sorry.</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -368,7 +341,7 @@ You can find out more here: {!Knowledge.Chat_Bot_URL}</message>
     <botDialogs>
         <botSteps>
             <botMessages>
-                <message>To speak with an admissions counsellor, please visit the booking site at www.yourschool.edu/admissions. For additional help, I will provide you with you knowledge resources related to that process.</message>
+                <message>Okay. Let me see how I can help you speak with an admissions counsellor for assistance.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -411,40 +384,8 @@ You can find out more here: {!Knowledge.Chat_Bot_URL}</message>
             <type>RecordLookup</type>
         </botSteps>
         <botSteps>
-            <botVariableOperation>
-                <botMessages>
-                    <message>Here are the articles I found that may help you. Select from the following if you would like to learn more:</message>
-                </botMessages>
-                <botVariableOperands>
-                    <disableAutoFill>true</disableAutoFill>
-                    <sourceName>_Object</sourceName>
-                    <sourceType>StandardMlSlotClass</sourceType>
-                    <targetName>Knowledge</targetName>
-                    <targetType>ConversationVariable</targetType>
-                </botVariableOperands>
-                <invalidInputBotNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Confused</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </invalidInputBotNavigation>
-                <optionalCollect>false</optionalCollect>
-                <quickReplyOptionTemplate>{!Title}</quickReplyOptionTemplate>
-                <quickReplyType>Dynamic</quickReplyType>
-                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
-                <sourceVariableName>AppDeadlineKnowledgeResults</sourceVariableName>
-                <sourceVariableType>ConversationVariable</sourceVariableType>
-                <type>Collect</type>
-            </botVariableOperation>
-            <type>VariableOperation</type>
-        </botSteps>
-        <botSteps>
             <botMessages>
-                <message>Selected Article Title: {!Knowledge.Title}
-
-Selected Article Summary: {!Knowledge.Summary}
-
-You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs1.force.com/s/article/Connect-to-an-Admissions-Conselor</message>
+                <message>{!AppDeadlineKnowledgeResults[0].Summary}.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -927,11 +868,15 @@ You can find out more here: {!Knowledge.Chat_Bot_URL__c}</message>
         <developerName>Knowledge</developerName>
         <label>Knowledge</label>
     </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>VarTwoToTenContacts</developerName>
+        <label>VarTwoToTenContacts</label>
+    </conversationVariables>
     <entryDialog>Welcome</entryDialog>
     <mainMenuDialog>Main_Menu</mainMenuDialog>
     <nlpProviders>
         <language>en_US</language>
         <nlpProviderType>EinsteinAi</nlpProviderType>
     </nlpProviders>
-    <responseDelayMilliseconds>1800</responseDelayMilliseconds>
 </BotVersion>
