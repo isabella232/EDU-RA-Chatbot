@@ -33,6 +33,9 @@
         <mlIntents>
             <developerName>What_are_the_Application_Deadlines</developerName>
             <label>What are the Application Deadlines?</label>
+            <mlIntentUtterances>
+                <utterance>when do I need to submit by?</utterance>
+            </mlIntentUtterances>
             <relatedMlIntents>
                 <relatedMlIntent>Applications.Application_Deadline</relatedMlIntent>
             </relatedMlIntents>
