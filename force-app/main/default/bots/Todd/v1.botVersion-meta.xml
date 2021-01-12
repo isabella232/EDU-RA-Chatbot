@@ -14,7 +14,7 @@
             <botMessages>
                 <message>Welcome! My name is Todd. 
 I&apos;m the Admissions Bot. 
-What can I help you with today?</message>
+How can I help you today?</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -499,6 +499,12 @@ Can you tell me what that email address is?</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
+                        <parameterName>varContactCount</parameterName>
+                        <type>Output</type>
+                        <variableName>varContactCount</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
                         <parameterName>varActionPlanStatus</parameterName>
                         <type>Output</type>
                         <variableName>ActionPlanStatus</variableName>
@@ -520,6 +526,36 @@ Can you tell me what that email address is?</message>
                 <type>Set</type>
             </botVariableOperation>
             <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>varContactCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>GreaterThanOrEqualTo</operatorType>
+                <rightOperandValue>2</rightOperandValue>
+            </botStepConditions>
+            <botStepConditions>
+                <leftOperandName>varContactCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>LessThanOrEqualTo</operatorType>
+                <rightOperandValue>10</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>Thank you for providing that information. In order to assist you, I&apos;ll need to connect you with an Admissions Counselor.</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
+            <type>Group</type>
         </botSteps>
         <botSteps>
             <botMessages>
@@ -867,6 +903,11 @@ You can find out more here: {!Knowledge.Chat_Bot_URL__c}</message>
         <dataType>Object</dataType>
         <developerName>Knowledge</developerName>
         <label>Knowledge</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <developerName>varContactCount</developerName>
+        <label>varContactCount</label>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
