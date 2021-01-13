@@ -123,7 +123,7 @@
         <developerName>RoutableId</developerName>
         <label>Routable Id</label>
     </contextVariables>
-    <description>A bot that helps your applicants with common application questions and connecting to Admissions Counsellors.</description>
+    <description>A bot that helps your applicants with common application questions and connect to Admissions Counsellors.</description>
     <label>Todd</label>
     <logPrivateConversationData>true</logPrivateConversationData>
 </Bot>
