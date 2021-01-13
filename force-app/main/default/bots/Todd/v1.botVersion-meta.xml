@@ -488,9 +488,15 @@ Can you tell me what that email address is?</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varEmail</parameterName>
+                        <parameterName>varApplicationCount</parameterName>
                         <type>Output</type>
-                        <variableName>Email_Address</variableName>
+                        <variableName>ApplicationCount</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varApplicationStatus</parameterName>
+                        <type>Output</type>
+                        <variableName>Application_Status</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -500,21 +506,21 @@ Can you tell me what that email address is?</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varContactCount</parameterName>
-                        <type>Output</type>
-                        <variableName>varContactCount</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
                         <parameterName>varActionPlanStatus</parameterName>
                         <type>Output</type>
                         <variableName>ActionPlanStatus</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varApplicationStatus</parameterName>
+                        <parameterName>varContactCount</parameterName>
                         <type>Output</type>
-                        <variableName>Application_Status</variableName>
+                        <variableName>varContactCount</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varEmail</parameterName>
+                        <type>Output</type>
+                        <variableName>Email_Address</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -559,10 +565,52 @@ Can you tell me what that email address is?</message>
             <type>Group</type>
         </botSteps>
         <botSteps>
-            <botMessages>
-                <message>Your Application Status is {!Application_Status}</message>
-            </botMessages>
-            <type>Message</type>
+            <botStepConditions>
+                <leftOperandName>ApplicationCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>GreaterThan</operatorType>
+                <rightOperandValue>1</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>placeholder text: you have multiple applications</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>End_Chat</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>ApplicationCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>placeholder text: you have 0 applications</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>End_Chat</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
+            <type>Group</type>
         </botSteps>
         <botSteps>
             <botStepConditions>
@@ -616,6 +664,12 @@ Can you tell me what that email address is?</message>
     </botDialogs>
     <botDialogs>
         <botDialogGroup>Application_Status</botDialogGroup>
+        <botSteps>
+            <botMessages>
+                <message>Your Application Status is {!Application_Status}</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
         <botSteps>
             <botMessages>
                 <message>Here is what to expect now that your application is complete</message>
@@ -727,6 +781,12 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
             <botMessages>
+                <message>Your Application Status is {!Application_Status}</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
                 <message>Here are the next steps as your application is being processed.</message>
             </botMessages>
             <type>Message</type>
@@ -735,7 +795,13 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
             <botMessages>
                 <message>The Checklist Completion for you application is {!ApplicationChecklistCompletion}
 
-The step {!ActionPlanName} is currently listed as {!ActionPlanStatus}.</message>
+The step {!ActionPlanName} is currently listed as {!ActionPlanStatus}.
+
+New?
+
+{!AppDeadlineKnowledgeResults}
+
+{!Knowledge}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -884,6 +950,11 @@ You can find out more here: {!Knowledge.Chat_Bot_URL__c}</message>
         <dataType>Number</dataType>
         <developerName>ApplicationChecklistCompletion</developerName>
         <label>ApplicationChecklistCompletion</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <developerName>ApplicationCount</developerName>
+        <label>ApplicationCount</label>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
