@@ -26,6 +26,10 @@
         "enhancedNotesSettings": {
             "enableEnhancedNotes": true
         },
+        "knowledgeSettings": {
+            "enableKnowledge": true,
+            "enableLightningKnowledge": true
+        },
         "languageSettings": {
             "enableTranslationWorkbench": true
         },
