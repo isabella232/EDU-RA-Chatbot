@@ -20,6 +20,19 @@ Please pick an option.</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>Search_Counter</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                </botVariableOperation>
+                <type>VariableOperation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
             <botNavigation>
                 <botNavigationLinks>
                     <targetBotDialog>Main_Menu</targetBotDialog>
@@ -944,6 +957,11 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
         <dataType>Object</dataType>
         <developerName>Knowledge</developerName>
         <label>Knowledge</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <developerName>Search_Counter</developerName>
+        <label>Search Counter</label>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
