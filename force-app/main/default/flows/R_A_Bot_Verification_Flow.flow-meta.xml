@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>gets the verification code</description>
+        <name>Get_Random_Code</name>
+        <label>Get Random Code</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <actionName>GetRandomNumber</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>send_verification_code_via_email</targetReference>
+        </connector>
+        <inputParameters>
+            <name>stringLength</name>
+            <value>
+                <elementReference>varStringLength</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>varRandomString</assignToReference>
+            <name>randomString</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Sends the participant a verification email code</description>
+        <name>send_verification_code_via_email</name>
+        <label>send verification code via email</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>set_Expiry_Time</targetReference>
+        </connector>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>varEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>varEmail</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Verification Code - Application Inquiry</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <description>add 5 minutes to the current time.</description>
+        <name>set_Expiry_Time</name>
+        <label>set Expiry Time</label>
+        <locationX>176</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>varExpiryTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$System.OriginDateTime</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>sets the length of the verification code</description>
+        <name>set_String_Length</name>
+        <label>set String Length</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignmentItems>
+            <assignToReference>varStringLength</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>8.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Random_Code</targetReference>
+        </connector>
+    </assignments>
+    <description>Sends the user a verification code to confirm the email address.</description>
+    <interviewLabel>R&amp;A Bot: Verification Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>R&amp;A Bot: Verification Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>set_String_Length</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>body of the email</description>
+        <name>varEmailBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello!
+Please enter the following code into your Chat Session.
+{!varRandomString}
+This code will expire in 5 minutes.
+Thank you!</text>
+    </textTemplates>
+    <variables>
+        <description>this is the email address of the Applicant</description>
+        <name>varEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>adds 5 minutes to the time the code was sent.</description>
+        <name>varExpiryTime</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Flow.InterviewStartTime</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <description>this is the random string sent to the user</description>
+        <name>varRandomString</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>sets the string length for the Random String</description>
+        <name>varStringLength</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+</Flow>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <botMlDomain>
+        <label>Todd Knowledge Edits</label>
+        <mlIntents>
+            <developerName>Main_Menu</developerName>
+            <label>Main Menu</label>
+            <mlIntentUtterances>
+                <utterance>Main Menu</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Something_Else</developerName>
+            <label>Something Else</label>
+            <relatedMlIntents>
+                <relatedMlIntent>Applications.Something_else</relatedMlIntent>
+            </relatedMlIntents>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Speak_with_an_Admissions_Counselor</developerName>
+            <label>Speak with an Admissions Counselor</label>
+            <relatedMlIntents>
+                <relatedMlIntent>Applications.Speak_with_Counselor</relatedMlIntent>
+            </relatedMlIntents>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Transfer_To_Agent</developerName>
+            <label>Transfer to agent</label>
+            <mlIntentUtterances>
+                <utterance>Transfer to agent</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Welcome</developerName>
+            <label>Welcome</label>
+            <mlIntentUtterances>
+                <utterance>menu</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>home</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>main meny</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>main menu</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>meny</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>What_are_the_Application_Deadlines</developerName>
+            <label>What are the Application Deadlines?</label>
+            <relatedMlIntents>
+                <relatedMlIntent>Applications.Application_Deadline</relatedMlIntent>
+            </relatedMlIntents>
+        </mlIntents>
+        <mlIntents>
+            <developerName>What_is_my_application_status</developerName>
+            <label>What is my application status?</label>
+            <relatedMlIntents>
+                <relatedMlIntent>Applications.Application_Status</relatedMlIntent>
+            </relatedMlIntents>
+        </mlIntents>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <description>captures the value of a CommunityUser&apos;s ID</description>
+            <developerName>CommunityUserId</developerName>
+            <extractionType>Value</extractionType>
+            <label>CommunityUserId</label>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <description>email supplied by the client</description>
+            <developerName>Email</developerName>
+            <extractionRegex>[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}</extractionRegex>
+            <extractionType>Pattern</extractionType>
+            <label>Email</label>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <description>North American Phone Number</description>
+            <developerName>Phone_Number</developerName>
+            <extractionRegex>[0-9]{3}-[0-9]{3}-[0-9]{4}</extractionRegex>
+            <extractionType>Pattern</extractionType>
+            <label>Phone Number</label>
+        </mlSlotClasses>
+        <name>Todd_Knowledge_Edits</name>
+    </botMlDomain>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.ChatKey</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Text</dataType>
+        <developerName>ChatKey</developerName>
+        <label>Chat Key</label>
+    </contextVariables>
+    <contextVariables>
+        <dataType>Id</dataType>
+        <developerName>Community_User_ID</developerName>
+        <label>Community User ID</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.ContactId</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>ContactId</developerName>
+        <label>Contact Id</label>
+    </contextVariables>
+    <contextVariables>
+        <dataType>Number</dataType>
+        <developerName>Email_Attempt_Count</developerName>
+        <label>Email Attempt Count</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.LiveChatVisitorId</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>EndUserId</developerName>
+        <label>End User Id</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.Id</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>RoutableId</developerName>
+        <label>Routable Id</label>
+    </contextVariables>
+    <description>A bot that helps your applicants with common application questions.</description>
+    <label>Todd Knowledge Edits</label>
+    <logPrivateConversationData>true</logPrivateConversationData>
+</Bot>

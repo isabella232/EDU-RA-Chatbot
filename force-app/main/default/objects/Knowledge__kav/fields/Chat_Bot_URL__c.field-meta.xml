@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Chat_Bot_URL__c</fullName>
+    <defaultValue>&quot;https://sandbox-java-app-59782-dev-ed-17687326f48.cs1.force.com/s/article/&quot;</defaultValue>
+    <description>URL used by Admissions Chatbot to redirect users to a complete articles site.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>URL used by Admissions Chatbot to redirect users to a complete articles site.
+This can be a Community or another full URL.</inlineHelpText>
+    <label>Chat Bot URL</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
