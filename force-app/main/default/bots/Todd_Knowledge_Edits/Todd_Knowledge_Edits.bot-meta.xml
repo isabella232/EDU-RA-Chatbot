@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bot xmlns="http://soap.sforce.com/2006/04/metadata">
     <botMlDomain>
-        <label>Todd</label>
+        <label>Todd Knowledge Edits</label>
         <mlIntents>
             <developerName>Main_Menu</developerName>
             <label>Main Menu</label>
@@ -33,9 +33,6 @@
         <mlIntents>
             <developerName>What_are_the_Application_Deadlines</developerName>
             <label>What are the Application Deadlines?</label>
-            <mlIntentUtterances>
-                <utterance>when do I need to submit by?</utterance>
-            </mlIntentUtterances>
             <relatedMlIntents>
                 <relatedMlIntent>Applications.Application_Deadline</relatedMlIntent>
             </relatedMlIntents>
@@ -70,7 +67,7 @@
             <extractionType>Pattern</extractionType>
             <label>Phone Number</label>
         </mlSlotClasses>
-        <name>Todd</name>
+        <name>Todd_Knowledge_Edits</name>
     </botMlDomain>
     <botUser>traction@alt.user</botUser>
     <contextVariables>
@@ -123,7 +120,7 @@
         <developerName>RoutableId</developerName>
         <label>Routable Id</label>
     </contextVariables>
-    <description>A bot that helps your applicants with common application questions and then connect to Admissions Counsellors.</description>
-    <label>Todd</label>
+    <description>A bot that helps your applicants with common application questions.</description>
+    <label>Todd Knowledge Edits</label>
     <logPrivateConversationData>true</logPrivateConversationData>
 </Bot>

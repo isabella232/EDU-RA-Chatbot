@@ -14,8 +14,7 @@
             <botMessages>
                 <message>Welcome! My name is Todd. 
 I&apos;m the Admissions Bot. 
-How can I help you today?
-Please pick an option.</message>
+What can I help you with today?</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -122,42 +121,9 @@ Please pick an option.</message>
     <botDialogs>
         <botSteps>
             <botMessages>
-                <message>Got it. Let me see how I can help you with application deadlines.</message>
+                <message>Got it.</message>
             </botMessages>
             <type>Message</type>
-        </botSteps>
-        <botSteps>
-            <botSteps>
-                <botVariableOperation>
-                    <botVariableOperands>
-                        <targetName>AppDeadlineQuestion</targetName>
-                        <targetType>ConversationVariable</targetType>
-                    </botVariableOperands>
-                    <type>Unset</type>
-                </botVariableOperation>
-                <type>VariableOperation</type>
-            </botSteps>
-            <botSteps>
-                <botVariableOperation>
-                    <botVariableOperands>
-                        <targetName>KArticleHelp</targetName>
-                        <targetType>ConversationVariable</targetType>
-                    </botVariableOperands>
-                    <type>Unset</type>
-                </botVariableOperation>
-                <type>VariableOperation</type>
-            </botSteps>
-            <botSteps>
-                <botVariableOperation>
-                    <botVariableOperands>
-                        <targetName>Knowledge</targetName>
-                        <targetType>ConversationVariable</targetType>
-                    </botVariableOperands>
-                    <type>Unset</type>
-                </botVariableOperation>
-                <type>VariableOperation</type>
-            </botSteps>
-            <type>Group</type>
         </botSteps>
         <botSteps>
             <botVariableOperation>
@@ -190,41 +156,24 @@ Please pick an option.</message>
                 <maxLookupResults>1</maxLookupResults>
                 <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
                 <sourceVariableType>ConversationVariable</sourceVariableType>
-                <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
+                <targetVariableName>Knowledge_Articles</targetVariableName>
             </conversationRecordLookup>
             <type>RecordLookup</type>
         </botSteps>
         <botSteps>
-            <botStepConditions>
-                <leftOperandName>AppDeadlineKnowledgeResults</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>LessThan</operatorType>
-                <rightOperandValue>1</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botMessages>
-                    <message>It looks like we couldn&apos;t find any articles about that topic.</message>
-                </botMessages>
-                <type>Message</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
             <botMessages>
-                <message>{!AppDeadlineKnowledgeResults[0].Summary}.</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
-        <botSteps>
-            <botMessages>
-                <message>You can also find more details by following this link: {!AppDeadlineKnowledgeResults[0].Chat_Bot_URL__c}</message>
+                <message>{!Knowledge_Articles[0].Title}
+
+{!Knowledge_Articles[0].Summary}
+
+{!Knowledge_Articles[0].Chat_Bot_URL__c}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <botVariableOperation>
                 <botMessages>
-                    <message>Was this helpful?</message>
+                    <message>Does this help you?</message>
                 </botMessages>
                 <botQuickReplyOptions>
                     <literalValue>Yes</literalValue>
@@ -255,7 +204,7 @@ Please pick an option.</message>
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>I&apos;m sorry.</message>
+                    <message>I&apos;m sorry. Let me see if I can connect you with an admission counselor for assistance.</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -342,7 +291,7 @@ Please pick an option.</message>
     <botDialogs>
         <botSteps>
             <botMessages>
-                <message>Okay. Let me see how I can help you speak with an Admissions Counsellor for assistance.</message>
+                <message>To speak with an admissions counsellor, please visit the booking site at www.yourschool.edu/admissions. For additional help, I will provide you with you knowledge resources related to that process.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -385,8 +334,40 @@ Please pick an option.</message>
             <type>RecordLookup</type>
         </botSteps>
         <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>Here are the articles I found that may help you. Select from the following if you would like to learn more:</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Object</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>Knowledge</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <invalidInputBotNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Confused</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </invalidInputBotNavigation>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyOptionTemplate>{!Title}</quickReplyOptionTemplate>
+                <quickReplyType>Dynamic</quickReplyType>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <sourceVariableName>AppDeadlineKnowledgeResults</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
             <botMessages>
-                <message>{!AppDeadlineKnowledgeResults[0].Summary}</message>
+                <message>Selected Article Title: {!Knowledge.Title}
+
+Selected Article Summary: {!Knowledge.Summary}
+
+You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs1.force.com/s/article/Connect-to-an-Admissions-Conselor</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -488,27 +469,9 @@ Can you tell me what that email address is?</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varApplicationCount</parameterName>
+                        <parameterName>varApplicationStatus</parameterName>
                         <type>Output</type>
-                        <variableName>ApplicationCount</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varTaskStatus</parameterName>
-                        <type>Output</type>
-                        <variableName>TaskStatus</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varContactCount</parameterName>
-                        <type>Output</type>
-                        <variableName>varContactCount</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varTaskName</parameterName>
-                        <type>Output</type>
-                        <variableName>TaskName</variableName>
+                        <variableName>Application_Status</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -517,100 +480,16 @@ Can you tell me what that email address is?</message>
                         <variableName>Email_Address</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varApplicationChecklistCompletion</parameterName>
-                        <type>Output</type>
-                        <variableName>ApplicationChecklistCompletion</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varApplicationStatus</parameterName>
-                        <type>Output</type>
-                        <variableName>Application_Status</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
             </botVariableOperation>
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
-            <botStepConditions>
-                <leftOperandName>varContactCount</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>GreaterThanOrEqualTo</operatorType>
-                <rightOperandValue>2</rightOperandValue>
-            </botStepConditions>
-            <botStepConditions>
-                <leftOperandName>varContactCount</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>LessThanOrEqualTo</operatorType>
-                <rightOperandValue>10</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botMessages>
-                    <message>Thank you for providing that information. In order to assist you, I&apos;ll need to connect you with an Admissions Counselor.</message>
-                </botMessages>
-                <type>Message</type>
-            </botSteps>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botStepConditions>
-                <leftOperandName>ApplicationCount</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>GreaterThan</operatorType>
-                <rightOperandValue>1</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botMessages>
-                    <message>placeholder text: you have multiple applications. Please select one of the following applications...</message>
-                </botMessages>
-                <type>Message</type>
-            </botSteps>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>End_Chat</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botStepConditions>
-                <leftOperandName>ApplicationCount</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>Equals</operatorType>
-                <rightOperandValue>0</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botMessages>
-                    <message>placeholder text: you have 0 applications. The chat will end for now.</message>
-                </botMessages>
-                <type>Message</type>
-            </botSteps>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>End_Chat</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
-            </botSteps>
-            <type>Group</type>
+            <botMessages>
+                <message>Your Application Status is {!Application_Status}</message>
+            </botMessages>
+            <type>Message</type>
         </botSteps>
         <botSteps>
             <botStepConditions>
@@ -664,12 +543,6 @@ Can you tell me what that email address is?</message>
     </botDialogs>
     <botDialogs>
         <botDialogGroup>Application_Status</botDialogGroup>
-        <botSteps>
-            <botMessages>
-                <message>Your Application Status is {!Application_Status}</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
         <botSteps>
             <botMessages>
                 <message>Here is what to expect now that your application is complete</message>
@@ -774,29 +647,14 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
             <type>Navigation</type>
         </botSteps>
         <developerName>Return_Application_Status_Knowledge_Article</developerName>
-        <label>Application Complete + Knowledge</label>
+        <label>Return Application Status + Knowledge Article</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>Your Application Status is {!Application_Status}, and checklist items are currently listed at {!ApplicationChecklistCompletion}% complete.</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
-        <botSteps>
-            <botMessages>
-                <message>In particular, your checklist item
-
-{!TaskName}
-{!TaskStatus}</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
-        <botSteps>
-            <botMessages>
-                <message>With all this in mind, here are some general processing times associated with application checklist items.</message>
+                <message>Here are the next steps as your application is being processed.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -826,12 +684,12 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
                     <fieldName>Knowledge__kav.Summary</fieldName>
                 </lookupFields>
                 <lookupFields>
-                    <fieldName>Knowledge__kav.UrlName</fieldName>
-                </lookupFields>
-                <lookupFields>
                     <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
                 </lookupFields>
-                <maxLookupResults>1</maxLookupResults>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.UrlName</fieldName>
+                </lookupFields>
+                <maxLookupResults>3</maxLookupResults>
                 <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
                 <sourceVariableType>ConversationVariable</sourceVariableType>
                 <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
@@ -839,14 +697,40 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
             <type>RecordLookup</type>
         </botSteps>
         <botSteps>
-            <botMessages>
-                <message>{!AppDeadlineKnowledgeResults[0].Summary}</message>
-            </botMessages>
-            <type>Message</type>
+            <botVariableOperation>
+                <botMessages>
+                    <message>Here are the articles I found that may help you as your application is being processed. Select from the following if you would like to learn more:</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Object</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>Knowledge</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <invalidInputBotNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Confused</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </invalidInputBotNavigation>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyOptionTemplate>{!Title}</quickReplyOptionTemplate>
+                <quickReplyType>Dynamic</quickReplyType>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <sourceVariableName>AppDeadlineKnowledgeResults</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>You can also find more details by following this link: {!AppDeadlineKnowledgeResults[0].Chat_Bot_URL__c}</message>
+                <message>Selected Article Title: {!Knowledge.Title}
+
+Selected Article Summary: {!Knowledge.Summary}
+
+You can find out more here: {!Knowledge.Chat_Bot_URL__c}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -872,7 +756,7 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
             <type>Navigation</type>
         </botSteps>
         <developerName>Return_Checklist_Status_Knowledge_Article</developerName>
-        <label>Application in Progress + Checklist KA</label>
+        <label>Return Checklist Status + Knowledge Article</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
@@ -895,16 +779,6 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
         <type>TransferFailed</type>
     </conversationSystemDialogs>
     <conversationVariables>
-        <dataType>Text</dataType>
-        <developerName>ActionPlanName</developerName>
-        <label>ActionPlanName</label>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <developerName>ActionPlanStatus</developerName>
-        <label>ActionPlanStatus</label>
-    </conversationVariables>
-    <conversationVariables>
         <collectionType>List</collectionType>
         <dataType>Object</dataType>
         <developerName>AppDeadlineKnowledgeResults</developerName>
@@ -914,16 +788,6 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
         <dataType>Text</dataType>
         <developerName>AppDeadlineQuestion</developerName>
         <label>AppDeadlineQuestion</label>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Number</dataType>
-        <developerName>ApplicationChecklistCompletion</developerName>
-        <label>ApplicationChecklistCompletion</label>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Number</dataType>
-        <developerName>ApplicationCount</developerName>
-        <label>ApplicationCount</label>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
@@ -946,24 +810,10 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
         <label>Knowledge</label>
     </conversationVariables>
     <conversationVariables>
-        <dataType>Text</dataType>
-        <developerName>TaskName</developerName>
-        <label>TaskName</label>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <developerName>TaskStatus</developerName>
-        <label>TaskStatus</label>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Number</dataType>
-        <developerName>varContactCount</developerName>
-        <label>varContactCount</label>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <developerName>VarTwoToTenContacts</developerName>
-        <label>VarTwoToTenContacts</label>
+        <collectionType>List</collectionType>
+        <dataType>Object</dataType>
+        <developerName>Knowledge_Articles</developerName>
+        <label>Knowledge Articles</label>
     </conversationVariables>
     <entryDialog>Welcome</entryDialog>
     <mainMenuDialog>Main_Menu</mainMenuDialog>
@@ -971,4 +821,5 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
         <language>en_US</language>
         <nlpProviderType>EinsteinAi</nlpProviderType>
     </nlpProviders>
+    <responseDelayMilliseconds>1800</responseDelayMilliseconds>
 </BotVersion>
