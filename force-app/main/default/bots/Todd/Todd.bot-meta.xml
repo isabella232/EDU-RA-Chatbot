@@ -72,7 +72,6 @@
         </mlSlotClasses>
         <name>Todd</name>
     </botMlDomain>
-    <botUser>traction@alt.user</botUser>
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>LiveChatTranscript</SObjectType>
