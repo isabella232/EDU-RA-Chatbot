@@ -672,6 +672,20 @@
         </mlIntentUtterances>
     </mlIntents>
     <mlIntents>
+        <description>Allows a user to return to the main menu.</description>
+        <developerName>Main_Menu</developerName>
+        <label>Main Menu</label>
+        <mlIntentUtterances>
+            <utterance>home</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>main menu</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>menu</utterance>
+        </mlIntentUtterances>
+    </mlIntents>
+    <mlIntents>
         <description>sample description goes here</description>
         <developerName>Something_else</developerName>
         <label>Something else</label>
