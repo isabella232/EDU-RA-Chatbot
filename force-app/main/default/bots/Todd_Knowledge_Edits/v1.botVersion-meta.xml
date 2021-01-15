@@ -29,6 +29,8 @@ What can I help you with today?</message>
         </botSteps>
         <developerName>Welcome</developerName>
         <label>Welcome</label>
+        <mlIntent>Welcome</mlIntent>
+        <mlIntentTrainingEnabled>false</mlIntentTrainingEnabled>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>

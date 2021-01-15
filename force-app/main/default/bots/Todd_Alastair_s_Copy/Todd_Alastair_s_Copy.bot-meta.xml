@@ -8,6 +8,9 @@
             <mlIntentUtterances>
                 <utterance>Main Menu</utterance>
             </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>home</utterance>
+            </mlIntentUtterances>
         </mlIntents>
         <mlIntents>
             <developerName>Something_Else</developerName>
@@ -85,6 +88,7 @@
         </mlSlotClasses>
         <name>Todd_Alastair_s_Copy</name>
     </botMlDomain>
+    <botUser>traction@alt.user</botUser>
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>LiveChatTranscript</SObjectType>
