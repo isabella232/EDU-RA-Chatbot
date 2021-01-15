@@ -45,6 +45,9 @@
             <mlIntentUtterances>
                 <utterance>main menu</utterance>
             </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>meny</utterance>
+            </mlIntentUtterances>
         </mlIntents>
         <mlIntents>
             <developerName>What_are_the_Application_Deadlines</developerName>
@@ -85,7 +88,6 @@
         </mlSlotClasses>
         <name>Todd_Knowledge_Edits</name>
     </botMlDomain>
-    <botUser>traction@alt.user</botUser>
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>LiveChatTranscript</SObjectType>

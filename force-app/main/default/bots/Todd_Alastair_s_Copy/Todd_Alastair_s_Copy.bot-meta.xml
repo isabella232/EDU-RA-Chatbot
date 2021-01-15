@@ -34,6 +34,16 @@
             </mlIntentUtterances>
         </mlIntents>
         <mlIntents>
+            <developerName>Welcome</developerName>
+            <label>Welcome</label>
+            <mlIntentUtterances>
+                <utterance>home</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <utterance>main menu</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
             <developerName>What_are_the_Application_Deadlines</developerName>
             <label>What are the Application Deadlines?</label>
             <relatedMlIntents>
@@ -88,7 +98,6 @@
         </mlSlotClasses>
         <name>Todd_Alastair_s_Copy</name>
     </botMlDomain>
-    <botUser>traction@alt.user</botUser>
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>LiveChatTranscript</SObjectType>
