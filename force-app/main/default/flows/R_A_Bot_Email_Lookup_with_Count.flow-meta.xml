@@ -4,8 +4,8 @@
     <assignments>
         <name>Count_of_Records_found_by_email</name>
         <label>Count of Records found by email</label>
-        <locationX>664</locationX>
-        <locationY>80</locationY>
+        <locationX>665</locationX>
+        <locationY>78</locationY>
         <assignmentItems>
             <assignToReference>varContactCount</assignToReference>
             <operator>AssignCount</operator>
@@ -59,8 +59,8 @@
         <description>Sets the Search Result Count, to return the value to the Bot.</description>
         <name>set_Search_Result_Count_0</name>
         <label>set Search Result Count</label>
-        <locationX>817</locationX>
-        <locationY>492</locationY>
+        <locationX>816</locationX>
+        <locationY>619</locationY>
         <assignmentItems>
             <assignToReference>varEmailSearchResults</assignToReference>
             <operator>Assign</operator>
@@ -101,8 +101,8 @@
         <description>set paths based on the number of records by the email search</description>
         <name>action_based_on_the_Contact_Count</name>
         <label>action based on the Contact Count</label>
-        <locationX>809</locationX>
-        <locationY>272</locationY>
+        <locationX>806</locationX>
+        <locationY>278</locationY>
         <defaultConnector>
             <targetReference>set_Search_Result_Count_0_0</targetReference>
         </defaultConnector>
@@ -133,12 +133,12 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>set_Search_Result_Count_0</targetReference>
+                <targetReference>Get_Contact_from_email_0</targetReference>
             </connector>
             <label>One Record Found</label>
         </rules>
     </decisions>
-    <description>Will look for an email address, will track the attempt counts</description>
+    <description>Will look for an email address, will track the attempt counts. 2nd get</description>
     <interviewLabel>R&amp;A Bot: Email Lookup with Count {!$Flow.CurrentDateTime}</interviewLabel>
     <label>R&amp;A Bot: Email Lookup with Count</label>
     <processMetadataValues>
@@ -203,6 +203,51 @@
         <object>Contact</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <description>from the email address provided to the bot, find a Contact</description>
+        <name>Get_Contact_from_email_0</name>
+        <label>Get Contact from email</label>
+        <locationX>816</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>set_Search_Result_Count_0</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varEmail</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>hed__AlternateEmail__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varEmail</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>hed__WorkEmail__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varEmail</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>hed__UniversityEmail__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varEmail</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>varContactId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
     <start>
         <locationX>60</locationX>
         <locationY>61</locationY>
@@ -219,6 +264,13 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <scale>0</scale>
+    </variables>
+    <variables>
+        <name>varContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <description>email address provided to the Bot</description>

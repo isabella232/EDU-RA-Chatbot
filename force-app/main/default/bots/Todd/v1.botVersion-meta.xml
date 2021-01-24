@@ -144,9 +144,6 @@ Please pick an option.</message>
                 <botNavigationLinks>
                     <targetBotDialog>Something_Else</targetBotDialog>
                 </botNavigationLinks>
-                <botNavigationLinks>
-                    <targetBotDialog>Temp_App_Status</targetBotDialog>
-                </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
             <type>Navigation</type>
@@ -398,7 +395,7 @@ Please pick an option.</message>
                     <invocationMappings>
                         <parameterName>varKnowledgeArticleSearch</parameterName>
                         <type>Output</type>
-                        <variableName>AppDeadlineQuestion</variableName>
+                        <variableName>KArticleHelp</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
@@ -422,7 +419,7 @@ Please pick an option.</message>
                     <fieldName>Knowledge__kav.UrlName</fieldName>
                 </lookupFields>
                 <maxLookupResults>1</maxLookupResults>
-                <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
+                <sourceVariableName>KArticleHelp</sourceVariableName>
                 <sourceVariableType>ConversationVariable</sourceVariableType>
                 <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
             </conversationRecordLookup>
@@ -472,238 +469,6 @@ Please pick an option.</message>
         <label>Something Else</label>
         <mlIntent>Something_Else</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
-        <showInFooterMenu>false</showInFooterMenu>
-    </botDialogs>
-    <botDialogs>
-        <botDialogGroup>Application_Status</botDialogGroup>
-        <botSteps>
-            <botSteps>
-                <botVariableOperation>
-                    <botVariableOperands>
-                        <targetName>Email_Address</targetName>
-                        <targetType>ConversationVariable</targetType>
-                    </botVariableOperands>
-                    <type>Unset</type>
-                </botVariableOperation>
-                <type>VariableOperation</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botMessages>
-                <message>To get you that information, I&apos;m going to need to be sure of who I&apos;m talking to.</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
-        <botSteps>
-            <botVariableOperation>
-                <botMessages>
-                    <message>When you submitted your application, you gave us an email address.
-Can you tell me what that email address is?</message>
-                </botMessages>
-                <botVariableOperands>
-                    <disableAutoFill>false</disableAutoFill>
-                    <sourceName>Email</sourceName>
-                    <sourceType>MlSlotClass</sourceType>
-                    <targetName>Email_Address</targetName>
-                    <targetType>ConversationVariable</targetType>
-                </botVariableOperands>
-                <optionalCollect>false</optionalCollect>
-                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
-                <type>Collect</type>
-            </botVariableOperation>
-            <type>VariableOperation</type>
-        </botSteps>
-        <botSteps>
-            <botMessages>
-                <message>Great, so email address is {!Email_Address}</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
-        <botSteps>
-            <botVariableOperation>
-                <botInvocation>
-                    <invocationActionName>Admission_Test</invocationActionName>
-                    <invocationActionType>flow</invocationActionType>
-                    <invocationMappings>
-                        <parameterName>varEmail</parameterName>
-                        <type>Input</type>
-                        <variableName>Email_Address</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varApplicationCount</parameterName>
-                        <type>Output</type>
-                        <variableName>ApplicationCount</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varTaskStatus</parameterName>
-                        <type>Output</type>
-                        <variableName>TaskStatus</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varContactCount</parameterName>
-                        <type>Output</type>
-                        <variableName>varContactCount</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varTaskName</parameterName>
-                        <type>Output</type>
-                        <variableName>TaskName</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varEmail</parameterName>
-                        <type>Output</type>
-                        <variableName>Email_Address</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varApplicationChecklistCompletion</parameterName>
-                        <type>Output</type>
-                        <variableName>ApplicationChecklistCompletion</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varApplicationStatus</parameterName>
-                        <type>Output</type>
-                        <variableName>Application_Status</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                </botInvocation>
-                <type>Set</type>
-            </botVariableOperation>
-            <type>VariableOperation</type>
-        </botSteps>
-        <botSteps>
-            <botStepConditions>
-                <leftOperandName>varContactCount</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>GreaterThanOrEqualTo</operatorType>
-                <rightOperandValue>2</rightOperandValue>
-            </botStepConditions>
-            <botStepConditions>
-                <leftOperandName>varContactCount</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>LessThanOrEqualTo</operatorType>
-                <rightOperandValue>10</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botMessages>
-                    <message>Thank you for providing that information. In order to assist you, I&apos;ll need to connect you with an Admissions Counselor.</message>
-                </botMessages>
-                <type>Message</type>
-            </botSteps>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botStepConditions>
-                <leftOperandName>ApplicationCount</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>GreaterThan</operatorType>
-                <rightOperandValue>1</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botMessages>
-                    <message>placeholder text: you have multiple applications. Please select one of the following applications...</message>
-                </botMessages>
-                <type>Message</type>
-            </botSteps>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>End_Chat</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botStepConditions>
-                <leftOperandName>ApplicationCount</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>Equals</operatorType>
-                <rightOperandValue>0</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botMessages>
-                    <message>I wasn&apos;t able to find any applications associated to you.  To provide further assistance, I&apos;ll need to connect you with an Admissions Counselor.</message>
-                </botMessages>
-                <type>Message</type>
-            </botSteps>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botStepConditions>
-                <leftOperandName>Application_Status</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>Equals</operatorType>
-                <rightOperandValue>In Progress</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Return_Checklist_Status_Knowledge_Article</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botStepConditions>
-                <leftOperandName>Application_Status</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>Equals</operatorType>
-                <rightOperandValue>Complete</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Return_Application_Status_Knowledge_Article</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
-            </botSteps>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
-            <type>Navigation</type>
-        </botSteps>
-        <description>simple, email-based flow to establish an identity</description>
-        <developerName>Establish_Identity_simple</developerName>
-        <label>Establish Identity (simple)</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
@@ -818,7 +583,7 @@ You can find out more here: https://sandbox-java-app-59782-dev-ed-17687326f48.cs
             <type>Navigation</type>
         </botSteps>
         <developerName>Return_Application_Status_Knowledge_Article</developerName>
-        <label>Application Complete + Knowledge</label>
+        <label>Application Complete</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
@@ -1043,6 +808,18 @@ todd@salesforce.edu</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
+                        <parameterName>varContactId</parameterName>
+                        <type>Output</type>
+                        <variableName>ContactId</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varErrors</parameterName>
+                        <type>Output</type>
+                        <variableName>FlowErrors</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
                         <parameterName>varEmail</parameterName>
                         <type>Output</type>
                         <variableName>Email_Address</variableName>
@@ -1058,12 +835,6 @@ todd@salesforce.edu</message>
                         <parameterName>varEmailSearchResults</parameterName>
                         <type>Output</type>
                         <variableName>varContactCount</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varErrors</parameterName>
-                        <type>Output</type>
-                        <variableName>FlowErrors</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
@@ -1097,6 +868,15 @@ DEBUG: Attempt Count {!SearchCounter2}</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
             <type>Group</type>
         </botSteps>
         <botSteps>
@@ -1114,15 +894,6 @@ DEBUG
 (Result of email search: 1)</message>
                 </botMessages>
                 <type>Message</type>
-            </botSteps>
-            <botSteps>
-                <botNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Verification_Code_Send</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Redirect</type>
-                </botNavigation>
-                <type>Navigation</type>
             </botSteps>
             <type>Group</type>
         </botSteps>
@@ -1151,7 +922,13 @@ DEBUG
             <type>Group</type>
         </botSteps>
         <botSteps>
-            <type>Wait</type>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Verification_Code_Send</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
         </botSteps>
         <description>Will ask the visitor to provide an email address, which can be validated against the Contact and Application records.</description>
         <developerName>Check_email_is_valid_for_a_Contact</developerName>
@@ -1160,6 +937,24 @@ DEBUG
     </botDialogs>
     <botDialogs>
         <botDialogGroup>Security</botDialogGroup>
+        <botSteps>
+            <botVariableOperation>
+                <botMessages>
+                    <message>what is your email</message>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>Email</sourceName>
+                    <sourceType>MlSlotClass</sourceType>
+                    <targetName>Email_Address</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <type>Collect</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
         <botSteps>
             <botMessages>
                 <message>We&apos;re going to send you an email with a verification code.
@@ -1176,17 +971,6 @@ This will be sent to {!Email_Address}</message>
                         <parameterName>varEmail</parameterName>
                         <type>Input</type>
                         <variableName>Email_Address</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varStringLength</parameterName>
-                        <type>Input</type>
-                        <value>8</value>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varExpiryTime</parameterName>
-                        <type>Output</type>
-                        <variableName>Verification_Code_Expiration</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -1213,7 +997,7 @@ This will be sent to {!Email_Address}</message>
                     <message>Can you please give me the Verification Code from the email?</message>
                 </botMessages>
                 <botVariableOperands>
-                    <disableAutoFill>true</disableAutoFill>
+                    <disableAutoFill>false</disableAutoFill>
                     <sourceName>Verification_Code_Input</sourceName>
                     <sourceType>MlSlotClass</sourceType>
                     <targetName>Verification_Code_Input</targetName>
@@ -1224,27 +1008,6 @@ This will be sent to {!Email_Address}</message>
                 <type>Collect</type>
             </botVariableOperation>
             <type>VariableOperation</type>
-        </botSteps>
-        <botSteps>
-            <botStepConditions>
-                <leftOperandName>Verification_Code_Expiration</leftOperandName>
-                <leftOperandType>ConversationVariable</leftOperandType>
-                <operatorType>GreaterThan</operatorType>
-                <rightOperandValue>now()</rightOperandValue>
-            </botStepConditions>
-            <botSteps>
-                <botMessages>
-                    <message>this took too long.  Sorry, bye!</message>
-                </botMessages>
-                <type>Message</type>
-            </botSteps>
-            <botSteps>
-                <conversationSystemMessage>
-                    <type>EndChat</type>
-                </conversationSystemMessage>
-                <type>SystemMessage</type>
-            </botSteps>
-            <type>Group</type>
         </botSteps>
         <botSteps>
             <botVariableOperation>
@@ -1289,10 +1052,13 @@ Let&apos;s move on</message>
                 <type>Message</type>
             </botSteps>
             <botSteps>
-                <botMessages>
-                    <message>DEBUG: Send to Application search process</message>
-                </botMessages>
-                <type>Message</type>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Temp_App_Status</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
             </botSteps>
             <type>Group</type>
         </botSteps>
@@ -1332,7 +1098,13 @@ I will send you a new code, please check your email again.</message>
             <type>Group</type>
         </botSteps>
         <botSteps>
-            <type>Wait</type>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Temp_App_Status</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
         </botSteps>
         <description>sends an email verification code to the client, to verify their email address.</description>
         <developerName>Verification_Code_Send</developerName>
@@ -1341,24 +1113,6 @@ I will send you a new code, please check your email again.</message>
     </botDialogs>
     <botDialogs>
         <botDialogGroup>Application_Status</botDialogGroup>
-        <botSteps>
-            <botVariableOperation>
-                <botMessages>
-                    <message>Contact Id</message>
-                </botMessages>
-                <botVariableOperands>
-                    <disableAutoFill>true</disableAutoFill>
-                    <sourceName>_Text</sourceName>
-                    <sourceType>StandardMlSlotClass</sourceType>
-                    <targetName>ContactId</targetName>
-                    <targetType>ConversationVariable</targetType>
-                </botVariableOperands>
-                <optionalCollect>false</optionalCollect>
-                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
-                <type>Collect</type>
-            </botVariableOperation>
-            <type>VariableOperation</type>
-        </botSteps>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
@@ -1416,26 +1170,96 @@ I will send you a new code, please check your email again.</message>
                 <leftOperandName>ApplicationCount</leftOperandName>
                 <leftOperandType>ConversationVariable</leftOperandType>
                 <operatorType>Equals</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>No_Applications</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>ApplicationCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
                 <rightOperandValue>1</rightOperandValue>
             </botStepConditions>
+            <botStepConditions>
+                <leftOperandName>Application_Status</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>in progress</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>Alright, I found something. Here are your current application details.</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
             <botSteps>
                 <botMessages>
                     <message>Application Status:
 {!Application_Status}
 
 Checklist % Complete:
-{!ChecklistPercentageComplete}
+{!ChecklistPercentageComplete}%
 
-All Documents:
+All Remaining Documents:
 {!ChecklistMessage}
 
-
-All Checklist:
+Remaining Checklist Items :
 {!TaskListMessage}</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
             <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>R_A_Bot_Knowledge_Variable_Application_In_Progress</invocationActionName>
+                    <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>varKnowledgeArticleSearch</parameterName>
+                        <type>Output</type>
+                        <variableName>KArticleHelp</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <conversationRecordLookup>
+                <SObjectType>Knowledge__kav</SObjectType>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Summary</fieldName>
+                </lookupFields>
+                <maxLookupResults>1</maxLookupResults>
+                <sourceVariableName>KArticleHelp</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
+            </conversationRecordLookup>
+            <type>RecordLookup</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Also, here are some general details about application checklist items you may find helpful:</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>{!AppDeadlineKnowledgeResults[0].Summary}.</message>
+            </botMessages>
+            <type>Message</type>
         </botSteps>
         <botSteps>
             <botStepConditions>
@@ -1456,7 +1280,25 @@ All Checklist:
             <type>Group</type>
         </botSteps>
         <botSteps>
-            <type>Wait</type>
+            <botMessages>
+                <message>Is there anything else I can help you with?</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>Something_Else</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>End_Chat</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
         </botSteps>
         <developerName>Temp_App_Status</developerName>
         <label>Temp - App Status</label>
@@ -1493,10 +1335,37 @@ All Checklist:
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
+            <botMessages>
+                <message>Thank you. Your application is currently listed as {!ApplicationSelection.hed__Application_Status__c}</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
             <type>Wait</type>
         </botSteps>
         <developerName>Multiple_Applications</developerName>
         <label>Multiple Applications</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botDialogGroup>Application_Status</botDialogGroup>
+        <botSteps>
+            <botMessages>
+                <message>It looks like we don&apos;t have any applications of file based on your information. Let me see if I can connect you with someone that can help you.</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
+        </botSteps>
+        <developerName>No_Applications</developerName>
+        <label>Applications is Null</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <conversationSystemDialogs>
@@ -1533,6 +1402,11 @@ All Checklist:
         <dataType>Number</dataType>
         <developerName>ApplicationCount</developerName>
         <label>ApplicationCount</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>ApplicationID</developerName>
+        <label>ApplicationID</label>
     </conversationVariables>
     <conversationVariables>
         <collectionType>List</collectionType>

@@ -31,7 +31,7 @@
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
-            <targetReference>set_Expiry_Time</targetReference>
+            <targetReference>set_Start_Time</targetReference>
         </connector>
         <inputParameters>
             <name>emailBody</name>
@@ -58,14 +58,30 @@
         <name>set_Expiry_Time</name>
         <label>set Expiry Time</label>
         <locationX>176</locationX>
-        <locationY>518</locationY>
+        <locationY>638</locationY>
         <assignmentItems>
             <assignToReference>varExpiryTime</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>ExpiryTime</elementReference>
+                <elementReference>fxExpiryTimeCalc</elementReference>
             </value>
         </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>set_Start_Time</name>
+        <label>set Start Time</label>
+        <locationX>176</locationX>
+        <locationY>518</locationY>
+        <assignmentItems>
+            <assignToReference>varStartTime</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.InterviewStartTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>set_Expiry_Time</targetReference>
+        </connector>
     </assignments>
     <assignments>
         <description>sets the length of the verification code</description>
@@ -86,10 +102,9 @@
     </assignments>
     <description>Sends the user a verification code to confirm the email address.</description>
     <formulas>
-        <description>Adds 10 minutes to the Interview Start DateTime, so provide a time limit for the code</description>
-        <name>ExpiryTime</name>
+        <name>fxExpiryTimeCalc</name>
         <dataType>DateTime</dataType>
-        <expression>{!$Flow.InterviewStartTime}+0.00694</expression>
+        <expression>{!varStartTime}+0.00694</expression>
     </formulas>
     <interviewLabel>R&amp;A Bot: Verification Code Send {!$Flow.CurrentDateTime}</interviewLabel>
     <label>R&amp;A Bot: Verification Code Send</label>
@@ -120,7 +135,7 @@
             <targetReference>set_String_Length</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <textTemplates>
         <description>body of the email</description>
         <name>varEmailBody</name>
@@ -147,7 +162,7 @@ Thank you!</text>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
         <value>
-            <elementReference>$Flow.InterviewStartTime</elementReference>
+            <elementReference>fxExpiryTimeCalc</elementReference>
         </value>
     </variables>
     <variables>
@@ -159,11 +174,18 @@ Thank you!</text>
         <isOutput>true</isOutput>
     </variables>
     <variables>
+        <name>varStartTime</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <description>sets the string length for the Random String</description>
         <name>varStringLength</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
-        <isInput>true</isInput>
+        <isInput>false</isInput>
         <isOutput>false</isOutput>
         <scale>0</scale>
     </variables>
