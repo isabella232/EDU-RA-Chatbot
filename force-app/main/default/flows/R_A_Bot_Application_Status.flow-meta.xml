@@ -85,7 +85,7 @@
             <assignToReference>varChecklistCompleteText</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>fxChecklistPercentage</elementReference>
+                <elementReference>Get_One_Application.randa__Checklist_Completion__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -292,14 +292,7 @@
             <label>Complete</label>
         </rules>
     </decisions>
-    <description>Custom Application Collection Variable - Subflow
-with rounding</description>
-    <formulas>
-        <name>fxChecklistPercentage</name>
-        <dataType>Number</dataType>
-        <expression>round({!Get_One_Application.randa__Checklist_Completion__c},0)</expression>
-        <scale>2</scale>
-    </formulas>
+    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update</description>
     <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Status {!$Flow.CurrentDateTime}</interviewLabel>
     <label>R&amp;A Bot: Application Status</label>
     <loops>
@@ -368,9 +361,9 @@ with rounding</description>
         </filters>
         <filters>
             <field>Status</field>
-            <operator>EqualTo</operator>
+            <operator>NotEqualTo</operator>
             <value>
-                <stringValue>In Progress</stringValue>
+                <stringValue>Completed</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -459,7 +452,7 @@ with rounding</description>
             <targetReference>Get_Applications</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <name>Assign_Many_Applications_Flow</name>
         <label>Assign Many Applications Flow</label>
@@ -522,14 +515,6 @@ with rounding</description>
     </variables>
     <variables>
         <name>varChecklistNumber</name>
-        <dataType>Number</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>true</isOutput>
-        <scale>0</scale>
-    </variables>
-    <variables>
-        <name>varChecklistPercentage</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
