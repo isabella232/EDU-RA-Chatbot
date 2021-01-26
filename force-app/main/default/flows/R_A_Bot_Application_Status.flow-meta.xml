@@ -13,6 +13,13 @@
                 <elementReference>varChecklistAllItems</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varDocChecklistItemCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Document_Checklist_Items</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Get_Application_Tasks</targetReference>
         </connector>
@@ -72,8 +79,8 @@
     <assignments>
         <name>Assign_In_Progress_Status_and_Checklist_Completion</name>
         <label>Assign In Progress Status and Checklist Completion</label>
-        <locationX>569</locationX>
-        <locationY>1254</locationY>
+        <locationX>570</locationX>
+        <locationY>1253</locationY>
         <assignmentItems>
             <assignToReference>varApplicationStatus</assignToReference>
             <operator>Assign</operator>
@@ -82,10 +89,17 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>varChecklistCompleteText</assignToReference>
-            <operator>Add</operator>
+            <assignToReference>varChecklistCompletion</assignToReference>
+            <operator>Assign</operator>
             <value>
                 <elementReference>Get_One_Application.randa__Checklist_Completion__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varChecklistCompletionText</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varChecklistCompletion</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -102,6 +116,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>varTaskListAllItems</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varTaskListItemCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Application_Tasks</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -292,7 +313,7 @@
             <label>Complete</label>
         </rules>
     </decisions>
-    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update</description>
+    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2</description>
     <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Status {!$Flow.CurrentDateTime}</interviewLabel>
     <label>R&amp;A Bot: Application Status</label>
     <loops>
@@ -408,9 +429,9 @@
         <filterLogic>and</filterLogic>
         <filters>
             <field>Status</field>
-            <operator>EqualTo</operator>
+            <operator>NotEqualTo</operator>
             <value>
-                <stringValue>New</stringValue>
+                <stringValue>Accepted</stringValue>
             </value>
         </filters>
         <filters>
@@ -418,6 +439,20 @@
             <operator>EqualTo</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>ParentRecordId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_One_Application.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Rejected</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -492,7 +527,7 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
-        <name>varChecklistCompleteNumber</name>
+        <name>varChecklistCompletion</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -500,7 +535,7 @@
         <scale>0</scale>
     </variables>
     <variables>
-        <name>varChecklistCompleteText</name>
+        <name>varChecklistCompletionText</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -536,11 +571,27 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
+        <name>varDocChecklistItemCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
         <name>varTaskListAllItems</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>varTaskListItemCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
     </variables>
     <variables>
         <name>varTaskListMessage</name>

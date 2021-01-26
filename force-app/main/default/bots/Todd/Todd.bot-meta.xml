@@ -91,13 +91,12 @@
             <dataType>Text</dataType>
             <description>Verification Code provided by the user.</description>
             <developerName>Verification_Code_Input</developerName>
-            <extractionRegex>[A-Z0-9]{8}</extractionRegex>
+            <extractionRegex>[a-zA-Z0-9]{8}</extractionRegex>
             <extractionType>Pattern</extractionType>
             <label>Verification Code Input</label>
         </mlSlotClasses>
         <name>Todd</name>
     </botMlDomain>
-    <botUser>test-erivoxrosz57@example.com</botUser>
     <contextVariables>
         <dataType>Text</dataType>
         <developerName>ApplicationSelectionText</developerName>
@@ -159,6 +158,6 @@
         <label>Routable Id</label>
     </contextVariables>
     <description>A bot that helps your applicants with common application questions and then connect to Admissions Counsellors.</description>
-    <label>Todd</label>
+    <label>Mascot</label>
     <logPrivateConversationData>true</logPrivateConversationData>
 </Bot>

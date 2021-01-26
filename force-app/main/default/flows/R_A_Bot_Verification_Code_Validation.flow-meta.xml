@@ -14,6 +14,13 @@
                 <booleanValue>false</booleanValue>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSearchCounter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
     </assignments>
     <assignments>
         <description>provides a variable for the bot to consume, saying that the user is valid</description>
@@ -26,6 +33,13 @@
             <operator>Assign</operator>
             <value>
                 <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSearchCounter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -85,6 +99,14 @@
         </connector>
     </start>
     <status>Active</status>
+    <variables>
+        <name>varSearchCounter</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
     <variables>
         <description>the Verification Code that the system generated</description>
         <name>varSystemVerificationCode</name>
