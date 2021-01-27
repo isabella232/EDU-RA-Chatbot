@@ -95,8 +95,7 @@
             <extractionType>Pattern</extractionType>
             <label>Verification Code Input</label>
         </mlSlotClasses>
-        <name>Mascot<
-            /name>
+        <name>Mascot</name>
     </botMlDomain>
     <contextVariables>
         <dataType>Text</dataType>
