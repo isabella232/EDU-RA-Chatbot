@@ -13,13 +13,6 @@
                 <elementReference>varChecklistAllItems</elementReference>
             </value>
         </assignmentItems>
-        <assignmentItems>
-            <assignToReference>varDocChecklistItemCount</assignToReference>
-            <operator>AssignCount</operator>
-            <value>
-                <elementReference>Get_Document_Checklist_Items</elementReference>
-            </value>
-        </assignmentItems>
         <connector>
             <targetReference>Get_Application_Tasks</targetReference>
         </connector>
@@ -79,8 +72,8 @@
     <assignments>
         <name>Assign_In_Progress_Status_and_Checklist_Completion</name>
         <label>Assign In Progress Status and Checklist Completion</label>
-        <locationX>570</locationX>
-        <locationY>1253</locationY>
+        <locationX>569</locationX>
+        <locationY>1254</locationY>
         <assignmentItems>
             <assignToReference>varApplicationStatus</assignToReference>
             <operator>Assign</operator>
@@ -89,17 +82,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>varChecklistCompletion</assignToReference>
-            <operator>Assign</operator>
+            <assignToReference>varChecklistCompleteText</assignToReference>
+            <operator>Add</operator>
             <value>
                 <elementReference>Get_One_Application.randa__Checklist_Completion__c</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>varChecklistCompletionText</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>varChecklistCompletion</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -116,13 +102,6 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>varTaskListAllItems</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>varTaskListItemCount</assignToReference>
-            <operator>AssignCount</operator>
-            <value>
-                <elementReference>Get_Application_Tasks</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -165,35 +144,6 @@
             <targetReference>Assign_Task_List_Values</targetReference>
         </connector>
     </assignments>
-    <assignments>
-        <name>Count_of_Applications</name>
-        <label>Count of Applications</label>
-        <locationX>566</locationX>
-        <locationY>270</locationY>
-        <assignmentItems>
-            <assignToReference>varApplicationCount</assignToReference>
-            <operator>AssignCount</operator>
-            <value>
-                <elementReference>GetAllApplications</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Count_of_Applications_Decision</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Debug</name>
-        <label>Debug</label>
-        <locationX>236</locationX>
-        <locationY>783</locationY>
-        <assignmentItems>
-            <assignToReference>varDebugMessage</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>No Apps. Sorry!</stringValue>
-            </value>
-        </assignmentItems>
-    </assignments>
     <constants>
         <name>varPadding</name>
         <dataType>String</dataType>
@@ -201,58 +151,6 @@
             <stringValue>                                                                                                                                                                    </stringValue>
         </value>
     </constants>
-    <decisions>
-        <name>Count_of_Applications_Decision</name>
-        <label>Count of Applications Decision</label>
-        <locationX>560</locationX>
-        <locationY>507</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>One_Application</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>varApplicationCount</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <numberValue>1.0</numberValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Get_One_Application</targetReference>
-            </connector>
-            <label>One Application</label>
-        </rules>
-        <rules>
-            <name>Application_Count_is_Greater_Than_1</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>varApplicationCount</leftValueReference>
-                <operator>GreaterThan</operator>
-                <rightValue>
-                    <numberValue>1.0</numberValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Assign_Many_Applications_Flow</targetReference>
-            </connector>
-            <label>Application Count is Greater Than 1</label>
-        </rules>
-        <rules>
-            <name>No_Applications</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>varApplicationCount</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <numberValue>0.0</numberValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Debug</targetReference>
-            </connector>
-            <label>No Applications</label>
-        </rules>
-    </decisions>
     <decisions>
         <name>Is_Application_Complete</name>
         <label>Is Application Complete</label>
@@ -313,9 +211,8 @@
             <label>Complete</label>
         </rules>
     </decisions>
-    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2</description>
-    <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Status {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>R&amp;A Bot: Application Status</label>
+    <interviewLabel>R&amp;A Bot: Application Status - Many Applications {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>R&amp;A Bot: Application Status - Many Applications</label>
     <loops>
         <name>Checklist_Loop</name>
         <label>Checklist Loop</label>
@@ -382,40 +279,14 @@
         </filters>
         <filters>
             <field>Status</field>
-            <operator>NotEqualTo</operator>
+            <operator>EqualTo</operator>
             <value>
-                <stringValue>Completed</stringValue>
+                <stringValue>In Progress</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Task</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>Get_Applications</name>
-        <label>Get Applications</label>
-        <locationX>567</locationX>
-        <locationY>69</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Count_of_Applications</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>hed__Applicant__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>varContactId</elementReference>
-            </value>
-        </filters>
-        <object>hed__Application__c</object>
-        <outputReference>GetAllApplications</outputReference>
-        <queriedFields>Id</queriedFields>
-        <queriedFields>hed__Application_Status__c</queriedFields>
-        <queriedFields>hed__Applying_To__c</queriedFields>
-        <queriedFields>hed__Term__c</queriedFields>
-        <queriedFields>Bot_App_Status__c</queriedFields>
-        <queriedFields>randa__Checklist_Completion__c</queriedFields>
     </recordLookups>
     <recordLookups>
         <name>Get_Document_Checklist_Items</name>
@@ -429,9 +300,9 @@
         <filterLogic>and</filterLogic>
         <filters>
             <field>Status</field>
-            <operator>NotEqualTo</operator>
+            <operator>EqualTo</operator>
             <value>
-                <stringValue>Accepted</stringValue>
+                <stringValue>New</stringValue>
             </value>
         </filters>
         <filters>
@@ -441,20 +312,6 @@
                 <booleanValue>true</booleanValue>
             </value>
         </filters>
-        <filters>
-            <field>ParentRecordId</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>Get_One_Application.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Status</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>Rejected</stringValue>
-            </value>
-        </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>DocumentChecklistItem</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
@@ -462,18 +319,18 @@
     <recordLookups>
         <name>Get_One_Application</name>
         <label>Get One Application</label>
-        <locationX>569</locationX>
-        <locationY>779</locationY>
+        <locationX>176</locationX>
+        <locationY>332</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Is_Application_Complete</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>hed__Applicant__c</field>
+            <field>Id</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>varContactId</elementReference>
+                <elementReference>varAppId</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
@@ -484,18 +341,10 @@
         <locationX>50</locationX>
         <locationY>50</locationY>
         <connector>
-            <targetReference>Get_Applications</targetReference>
+            <targetReference>Get_One_Application</targetReference>
         </connector>
     </start>
     <status>Active</status>
-    <subflows>
-        <name>Assign_Many_Applications_Flow</name>
-        <label>Assign Many Applications Flow</label>
-        <locationX>909</locationX>
-        <locationY>497</locationY>
-        <flowName>R_A_Bot_Application_Status_Many_Applications</flowName>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </subflows>
     <variables>
         <name>GetAllApplications</name>
         <dataType>SObject</dataType>
@@ -503,6 +352,13 @@
         <isInput>true</isInput>
         <isOutput>true</isOutput>
         <objectType>hed__Application__c</objectType>
+    </variables>
+    <variables>
+        <name>varAppId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
     </variables>
     <variables>
         <name>varApplicationCount</name>
@@ -527,7 +383,7 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
-        <name>varChecklistCompletion</name>
+        <name>varChecklistCompleteNumber</name>
         <dataType>Number</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -535,7 +391,7 @@
         <scale>0</scale>
     </variables>
     <variables>
-        <name>varChecklistCompletionText</name>
+        <name>varChecklistCompleteText</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
@@ -571,27 +427,11 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
-        <name>varDocChecklistItemCount</name>
-        <dataType>Number</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>true</isOutput>
-        <scale>0</scale>
-    </variables>
-    <variables>
         <name>varTaskListAllItems</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
-    </variables>
-    <variables>
-        <name>varTaskListItemCount</name>
-        <dataType>Number</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>true</isOutput>
-        <scale>0</scale>
     </variables>
     <variables>
         <name>varTaskListMessage</name>

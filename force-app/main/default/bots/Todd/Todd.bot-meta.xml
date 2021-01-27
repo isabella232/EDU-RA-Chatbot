@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bot xmlns="http://soap.sforce.com/2006/04/metadata">
     <botMlDomain>
-        <label>Todd</label>
+        <label>Mascot</label>
         <mlIntents>
             <developerName>Main_Menu</developerName>
             <label>Main Menu</label>
@@ -59,6 +59,13 @@
         </mlIntents>
         <mlSlotClasses>
             <dataType>Text</dataType>
+            <developerName>ApplicationId</developerName>
+            <extractionRegex>[a-zA-Z0-9] {18}</extractionRegex>
+            <extractionType>Pattern</extractionType>
+            <label>ApplicationId</label>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
             <description>captures the value of a CommunityUser&apos;s ID</description>
             <developerName>CommunityUserId</developerName>
             <extractionType>Value</extractionType>
@@ -84,12 +91,23 @@
             <dataType>Text</dataType>
             <description>Verification Code provided by the user.</description>
             <developerName>Verification_Code_Input</developerName>
-            <extractionRegex>[A-Z0_9]{8}</extractionRegex>
+            <extractionRegex>[a-zA-Z0-9]{8}</extractionRegex>
             <extractionType>Pattern</extractionType>
             <label>Verification Code Input</label>
         </mlSlotClasses>
-        <name>Todd</name>
+        <name>Mascot<
+            /name>
     </botMlDomain>
+    <contextVariables>
+        <dataType>Text</dataType>
+        <developerName>ApplicationSelectionText</developerName>
+        <label>ApplicationSelectionText</label>
+    </contextVariables>
+    <contextVariables>
+        <dataType>Id</dataType>
+        <developerName>AppSelectionContextId</developerName>
+        <label>AppSelectionContextId</label>
+    </contextVariables>
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>LiveChatTranscript</SObjectType>
@@ -141,6 +159,6 @@
         <label>Routable Id</label>
     </contextVariables>
     <description>A bot that helps your applicants with common application questions and then connect to Admissions Counsellors.</description>
-    <label>Todd</label>
+    <label>Mascot</label>
     <logPrivateConversationData>true</logPrivateConversationData>
 </Bot>
