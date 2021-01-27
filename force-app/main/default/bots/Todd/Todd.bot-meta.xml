@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bot xmlns="http://soap.sforce.com/2006/04/metadata">
     <botMlDomain>
-        <label>Todd</label>
+        <label>Mascot</label>
         <mlIntents>
             <developerName>Main_Menu</developerName>
             <label>Main Menu</label>
@@ -95,7 +95,8 @@
             <extractionType>Pattern</extractionType>
             <label>Verification Code Input</label>
         </mlSlotClasses>
-        <name>Todd</name>
+        <name>Mascot<
+            /name>
     </botMlDomain>
     <contextVariables>
         <dataType>Text</dataType>
