@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Chat_Bot_Articles</fullName>
+    <fullName>Chatbot_Articles</fullName>
     <active>true</active>
     <description>Used to surface Articles in the Education Chatbot</description>
-    <label>Chat Bot Articles</label>
+    <label>Chatbot Articles</label>
 </RecordType>

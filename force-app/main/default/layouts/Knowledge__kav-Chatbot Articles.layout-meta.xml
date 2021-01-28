@@ -37,7 +37,7 @@
         <label>Admin</label>
         <layoutColumns>
             <layoutItems>
-                <field>Chat_Bot_URL__c</field>
+                <field>Chatbot_URL__c</field>
             </layoutItems>
             <layoutItems>
                 <field>IsVisibleInPkb</field>
