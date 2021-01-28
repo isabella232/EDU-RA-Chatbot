@@ -246,7 +246,7 @@
                     <fieldName>Knowledge__kav.Summary</fieldName>
                 </lookupFields>
                 <lookupFields>
-                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
+                    <fieldName>Knowledge__kav.Chatbot_URL__c</fieldName>
                 </lookupFields>
                 <maxLookupResults>1</maxLookupResults>
                 <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
@@ -264,7 +264,7 @@
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>It looks like we couldn&apos;t find any articles about that topic.</message>
+                    <message>It looks like I couldn&apos;t find any articles about that topic.</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -278,7 +278,7 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>{!AppDeadlineKnowledgeResults[0].Summary}. Link:{!AppDeadlineKnowledgeResults[0].Chat_Bot_URL__c}</message>
+                <message>{!AppDeadlineKnowledgeResults[0].Summary}. Link:{!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -445,7 +445,7 @@
                     <fieldName>Knowledge__kav.Summary</fieldName>
                 </lookupFields>
                 <lookupFields>
-                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
+                    <fieldName>Knowledge__kav.Chatbot_URL__c</fieldName>
                 </lookupFields>
                 <lookupFields>
                     <fieldName>Knowledge__kav.UrlName</fieldName>
@@ -460,7 +460,7 @@
         <botSteps>
             <botMessages>
                 <message>{!AppDeadlineKnowledgeResults[0].Summary}
-{!AppDeadlineKnowledgeResults[0].Chat_Bot_URL__c}</message>
+{!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -538,7 +538,7 @@
                     <fieldName>Knowledge__kav.Summary</fieldName>
                 </lookupFields>
                 <lookupFields>
-                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
+                    <fieldName>Knowledge__kav.Chatbot_URL__c</fieldName>
                 </lookupFields>
                 <lookupFields>
                     <fieldName>Knowledge__kav.UrlName</fieldName>
@@ -584,7 +584,7 @@
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>{!AppDeadlineKnowledgeResults[0].Summary}. Link:{!AppDeadlineKnowledgeResults[0].Chat_Bot_URL__c}</message>
+                    <message>{!AppDeadlineKnowledgeResults[0].Summary}. Link:{!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -789,7 +789,7 @@
                     <fieldName>Knowledge__kav.UrlName</fieldName>
                 </lookupFields>
                 <lookupFields>
-                    <fieldName>Knowledge__kav.Chat_Bot_URL__c</fieldName>
+                    <fieldName>Knowledge__kav.Chatbot_URL__c</fieldName>
                 </lookupFields>
                 <maxLookupResults>1</maxLookupResults>
                 <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
@@ -807,7 +807,7 @@
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>{!AppDeadlineKnowledgeResults[0].Summary} link: {!AppDeadlineKnowledgeResults[0].Chat_Bot_URL__c}</message>
+                    <message>{!AppDeadlineKnowledgeResults[0].Summary} link: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
