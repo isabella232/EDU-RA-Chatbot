@@ -232,7 +232,7 @@ new version (for metecho)</description>
             <targetReference>Get_Contact_from_email</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>varApplicationStatus</name>
         <dataType>String</dataType>

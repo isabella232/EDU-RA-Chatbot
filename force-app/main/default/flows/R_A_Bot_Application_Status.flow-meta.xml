@@ -27,13 +27,13 @@
     <assignments>
         <name>Assign_Checklist_List_Text_Values</name>
         <label>Assign Checklist List Text Values</label>
-        <locationX>704</locationX>
-        <locationY>1927</locationY>
+        <locationX>573</locationX>
+        <locationY>1942</locationY>
         <assignmentItems>
             <assignToReference>varChecklistAllItems</assignToReference>
             <operator>Add</operator>
             <value>
-                <stringValue>{!varChecklistNumber} . {!Checklist_Loop.Name}  is listed as {!Checklist_Loop.Status}</stringValue>
+                <stringValue>-  {!Checklist_Loop.Name}  is listed as {!Checklist_Loop.Status}</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -45,22 +45,6 @@
         </assignmentItems>
         <connector>
             <targetReference>Checklist_Loop</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Assign_Checklist_Number</name>
-        <label>Assign Checklist Number</label>
-        <locationX>446</locationX>
-        <locationY>1927</locationY>
-        <assignmentItems>
-            <assignToReference>varChecklistNumber</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <numberValue>1.0</numberValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Assign_Checklist_List_Text_Values</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -129,13 +113,13 @@
     <assignments>
         <name>Assign_Task_List_Values</name>
         <label>Assign Task List Values</label>
-        <locationX>1127</locationX>
-        <locationY>1929</locationY>
+        <locationX>1031</locationX>
+        <locationY>1949</locationY>
         <assignmentItems>
             <assignToReference>varTaskListAllItems</assignToReference>
             <operator>Add</operator>
             <value>
-                <stringValue>{!varTaskNumber} . {!Task_Loop.Subject} is {!Task_Loop.Status}</stringValue>
+                <stringValue>-  {!Task_Loop.Subject} is {!Task_Loop.Status}</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -147,22 +131,6 @@
         </assignmentItems>
         <connector>
             <targetReference>Task_Loop</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>Assign_Task_Number</name>
-        <label>Assign Task Number</label>
-        <locationX>931</locationX>
-        <locationY>1929</locationY>
-        <assignmentItems>
-            <assignToReference>varTaskNumber</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <numberValue>1.0</numberValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Assign_Task_List_Values</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -313,7 +281,7 @@
             <label>Complete</label>
         </rules>
     </decisions>
-    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2</description>
+    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2. Checklist not Numbered.V3</description>
     <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Status {!$Flow.CurrentDateTime}</interviewLabel>
     <label>R&amp;A Bot: Application Status</label>
     <loops>
@@ -324,7 +292,7 @@
         <collectionReference>Get_Document_Checklist_Items</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Assign_Checklist_Number</targetReference>
+            <targetReference>Assign_Checklist_List_Text_Values</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>All_Items_Message</targetReference>
@@ -338,7 +306,7 @@
         <collectionReference>Get_Application_Tasks</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Assign_Task_Number</targetReference>
+            <targetReference>Assign_Task_List_Values</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Assign_Task_List_Message</targetReference>
