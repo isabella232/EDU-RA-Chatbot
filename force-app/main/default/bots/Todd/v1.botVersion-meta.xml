@@ -95,6 +95,8 @@
         </botSteps>
         <developerName>End_Chat</developerName>
         <label>End Chat</label>
+        <mlIntent>End_Chat</mlIntent>
+        <mlIntentTrainingEnabled>false</mlIntentTrainingEnabled>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
