@@ -3,6 +3,13 @@
     <botMlDomain>
         <label>Mascot</label>
         <mlIntents>
+            <developerName>End_Chat</developerName>
+            <label>End Chat</label>
+            <relatedMlIntents>
+                <relatedMlIntent>Applications.Done</relatedMlIntent>
+            </relatedMlIntents>
+        </mlIntents>
+        <mlIntents>
             <developerName>Main_Menu</developerName>
             <label>Main Menu</label>
             <mlIntentUtterances>
@@ -97,6 +104,7 @@
         </mlSlotClasses>
         <name>Mascot</name>
     </botMlDomain>
+    <botUser>test-erivoxrosz57@example.com</botUser>
     <contextVariables>
         <dataType>Text</dataType>
         <developerName>ApplicationSelectionText</developerName>
