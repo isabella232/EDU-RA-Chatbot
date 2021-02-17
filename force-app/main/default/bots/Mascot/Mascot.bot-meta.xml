@@ -73,26 +73,11 @@
         </mlSlotClasses>
         <mlSlotClasses>
             <dataType>Text</dataType>
-            <description>captures the value of a CommunityUser&apos;s ID</description>
-            <developerName>CommunityUserId</developerName>
-            <extractionType>Value</extractionType>
-            <label>CommunityUserId</label>
-        </mlSlotClasses>
-        <mlSlotClasses>
-            <dataType>Text</dataType>
             <description>email supplied by the client</description>
             <developerName>Email</developerName>
             <extractionRegex>[a-zA-Z0-9+-._]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}</extractionRegex>
             <extractionType>Pattern</extractionType>
             <label>Email</label>
-        </mlSlotClasses>
-        <mlSlotClasses>
-            <dataType>Text</dataType>
-            <description>North American Phone Number</description>
-            <developerName>Phone_Number</developerName>
-            <extractionRegex>[0-9]{3}-[0-9]{3}-[0-9]{4}</extractionRegex>
-            <extractionType>Pattern</extractionType>
-            <label>Phone Number</label>
         </mlSlotClasses>
         <mlSlotClasses>
             <dataType>Text</dataType>
