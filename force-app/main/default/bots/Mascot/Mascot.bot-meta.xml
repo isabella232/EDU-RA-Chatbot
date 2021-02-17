@@ -104,7 +104,6 @@
         </mlSlotClasses>
         <name>Mascot</name>
     </botMlDomain>
-    <botUser>test-erivoxrosz57@example.com</botUser>
     <contextVariables>
         <dataType>Text</dataType>
         <developerName>ApplicationSelectionText</developerName>
