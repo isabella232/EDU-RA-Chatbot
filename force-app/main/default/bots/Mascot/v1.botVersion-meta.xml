@@ -314,11 +314,6 @@
     <botDialogs>
         <botSteps>
             <botStepConditions>
-                <leftOperandName>Community_User_ID</leftOperandName>
-                <leftOperandType>ContextVariable</leftOperandType>
-                <operatorType>IsNotSet</operatorType>
-            </botStepConditions>
-            <botStepConditions>
                 <leftOperandName>User_Verified</leftOperandName>
                 <leftOperandType>ConversationVariable</leftOperandType>
                 <operatorType>Equals</operatorType>
