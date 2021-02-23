@@ -190,21 +190,7 @@
             </connector>
             <label>One Application</label>
         </rules>
-        <rules>
-            <name>Application_Count_is_Greater_Than_1</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>varApplicationCount</leftValueReference>
-                <operator>GreaterThan</operator>
-                <rightValue>
-                    <numberValue>1.0</numberValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Assign_Many_Applications_Flow</targetReference>
-            </connector>
-            <label>Application Count is Greater Than 1</label>
-        </rules>
+
         <rules>
             <name>No_Applications</name>
             <conditionLogic>and</conditionLogic>
@@ -456,14 +442,7 @@
         </connector>
     </start>
     <status>Active</status>
-    <subflows>
-        <name>Assign_Many_Applications_Flow</name>
-        <label>Assign Many Applications Flow</label>
-        <locationX>909</locationX>
-        <locationY>497</locationY>
-        <flowName>R_A_Bot_Application_Status_Many_Applications</flowName>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </subflows>
+ 
     <variables>
         <name>GetAllApplications</name>
         <dataType>SObject</dataType>
