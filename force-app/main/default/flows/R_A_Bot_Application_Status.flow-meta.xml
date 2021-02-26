@@ -200,9 +200,6 @@
                     <numberValue>1.0</numberValue>
                 </rightValue>
             </conditions>
-            <connector>
-                <targetReference>Assign_Many_Applications_Flow</targetReference>
-            </connector>
             <label>Application Count is Greater Than 1</label>
         </rules>
         <rules>
@@ -281,7 +278,7 @@
             <label>Complete</label>
         </rules>
     </decisions>
-    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2. Checklist not Numbered.V3</description>
+    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2. Checklist not Numbered.V3. Task Control</description>
     <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Status {!$Flow.CurrentDateTime}</interviewLabel>
     <label>R&amp;A Bot: Application Status</label>
     <loops>
@@ -340,7 +337,7 @@
         <connector>
             <targetReference>Task_Loop</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>1 AND 2 AND (3 OR 4 OR 5)</filterLogic>
         <filters>
             <field>WhatId</field>
             <operator>EqualTo</operator>
@@ -353,6 +350,27 @@
             <operator>NotEqualTo</operator>
             <value>
                 <stringValue>Completed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Application Questions</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Education History Questions</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Test Details</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -455,15 +473,7 @@
             <targetReference>Get_Applications</targetReference>
         </connector>
     </start>
-    <status>Active</status>
-    <subflows>
-        <name>Assign_Many_Applications_Flow</name>
-        <label>Assign Many Applications Flow</label>
-        <locationX>909</locationX>
-        <locationY>497</locationY>
-        <flowName>R_A_Bot_Application_Status_Many_Applications</flowName>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </subflows>
+    <status>Draft</status>
     <variables>
         <name>GetAllApplications</name>
         <dataType>SObject</dataType>

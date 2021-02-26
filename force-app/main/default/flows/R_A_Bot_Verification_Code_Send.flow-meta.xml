@@ -4,8 +4,8 @@
         <description>gets the verification code</description>
         <name>Get_Random_Code</name>
         <label>Get Random Code</label>
-        <locationX>976</locationX>
-        <locationY>517</locationY>
+        <locationX>838</locationX>
+        <locationY>469</locationY>
         <actionName>GetRandomNumber</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -21,6 +21,10 @@
             </value>
         </inputParameters>
         <outputParameters>
+            <assignToReference>varExpiryTime</assignToReference>
+            <name>expires</name>
+        </outputParameters>
+        <outputParameters>
             <assignToReference>varRandomString</assignToReference>
             <name>randomString</name>
         </outputParameters>
@@ -29,8 +33,8 @@
         <description>Sends the participant a verification email code</description>
         <name>send_verification_code_via_email</name>
         <label>send verification code via email</label>
-        <locationX>979</locationX>
-        <locationY>656</locationY>
+        <locationX>838</locationX>
+        <locationY>610</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
@@ -63,8 +67,8 @@
         <description>final node in the Flow</description>
         <name>set_End_and_Errors</name>
         <label>set End and Errors</label>
-        <locationX>1313</locationX>
-        <locationY>582</locationY>
+        <locationX>1086</locationX>
+        <locationY>602</locationY>
         <assignmentItems>
             <assignToReference>varEnd</assignToReference>
             <operator>Assign</operator>
@@ -72,23 +76,6 @@
                 <elementReference>$Flow.FaultMessage</elementReference>
             </value>
         </assignmentItems>
-    </assignments>
-    <assignments>
-        <description>add 10 minutes to the current time.</description>
-        <name>set_Expiry_Time</name>
-        <label>set Expiry Time</label>
-        <locationX>838</locationX>
-        <locationY>461</locationY>
-        <assignmentItems>
-            <assignToReference>varExpiryTime</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>fxExpiryTimeCalc</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Get_Random_Code</targetReference>
-        </connector>
     </assignments>
     <assignments>
         <name>set_Start_Time</name>
@@ -103,7 +90,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>set_Expiry_Time</targetReference>
+            <targetReference>Get_Random_Code</targetReference>
         </connector>
     </assignments>
     <assignments>
