@@ -4,7 +4,7 @@
     <connectionWarningDuration>0</connectionWarningDuration>
     <displayQueuePosition>false</displayQueuePosition>
     <enablePrechatApi>false</enablePrechatApi>
-    <enableTranscriptSave>false</enableTranscriptSave>
+    <enableTranscriptSave>true</enableTranscriptSave>
     <label>Admissions Agent</label>
     <windowTitle>Live Chat</windowTitle>
 </LiveChatDeployment>
