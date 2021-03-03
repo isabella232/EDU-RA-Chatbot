@@ -5,7 +5,7 @@ global with sharing class GetRandomNumber {
            
         Results curResult = new Results();
         curResult.randomString = generateRandomString(requests[0].stringLength);
-           
+        curResult.expires = DateTime.now().addMinutes(5);
         List<Results> resultsList = new List<results>();
         resultsList.add(curResult);
         return resultsList;
@@ -34,5 +34,7 @@ global with sharing class GetRandomNumber {
     global class Results {
         @InvocableVariable
       global String randomString;
+        @InvocableVariable
+      global DateTime expires;
     }
 }
