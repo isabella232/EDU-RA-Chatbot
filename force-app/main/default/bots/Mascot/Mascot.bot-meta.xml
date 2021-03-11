@@ -89,6 +89,7 @@
         </mlSlotClasses>
         <name>Mascot</name>
     </botMlDomain>
+    <botUser>test-uu12tbk8p0bv@example.com</botUser>
     <contextVariables>
         <dataType>Text</dataType>
         <developerName>ApplicationSelectionText</developerName>
