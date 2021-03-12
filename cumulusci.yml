@@ -57,7 +57,13 @@ tasks:
             unmanaged: false
     
 
-
+    check_lightning_knowledge_enabled:
+        description: Checks if Lightning Knowledge is enabled in the org
+        class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
+        options:
+            settings_type: KnowledgeSettings
+            settings_field: IsLightningKnowledgeEnabled
+            value: True
 
 flows:
     dependencies:
@@ -91,4 +97,33 @@ flows:
                 options:
                     apex: buildActionPlanTemplates(False);
 
+    customer_org_minimal:
+        description: Installation flow used by MetaDeploy installer.
+        steps:
+            1: 
+                task: deploy
+                options:
+                    path: force-app/
 
+
+
+plans:
+    install:
+        slug: install
+        title: Install Admissions Connect Chatbot
+        tier: primary
+        is_listed: True
+        preflight_message: "This installs Admissions Connect Chatbot into your org."
+        post_install_message: "Thanks for installing Admissions Connect Chatbot. Visit the [Admissions Connect topic](https://powerofus.force.com/s/topic/0TO1E000000EA4xWAG/admissions-connect) on the Power of Us Hub for any questions about Admissions Connect."
+        error_message: "If you experience an issue with installation, please post in the [Power of Us Hub](https://powerofus.force.com/s/topic/0TO1E000000EA4xWAG/admissions-connect)."
+        checks:
+            - when: 'not "randa" in org_config.installed_packages'
+              action: error
+              message: "Admissions Connect must be installed in your org before installation."
+            - when: "not tasks.check_lightning_knowledge_enabled()"
+              action: error
+              message: "Lightning Knowledge must be enabled in your org before installation."
+
+        steps:
+            1:
+                flow: customer_org_minimal
