@@ -39,7 +39,6 @@ tasks:
             sql_path: datasets/dev/sample_data.sql
             mapping: datasets/dev/mapping.managed.yml
 
-
     load_document_files:
         group: "Omega: Custom Data Tasks"
         description: Loads document files to Salesforce
@@ -55,7 +54,10 @@ tasks:
             namespace_inject: randa
             path: unpackaged/config/dev
             unmanaged: false
-    
+
+    get_available_permsets:
+        description: Retrieves a list of available permission sets in the org
+        class_path: cumulusci.tasks.preflight.licenses.GetAvailablePermissionSets
 
     check_lightning_knowledge_enabled:
         description: Checks if Lightning Knowledge is enabled in the org
@@ -120,6 +122,9 @@ plans:
             - when: 'not "randa" in org_config.installed_packages'
               action: error
               message: "Admissions Connect must be installed in your org before installation."
+            - when: 'not "sfdc_chatbot_service_permset" in tasks.get_available_permsets()'
+              action: error
+              message: "Einstein Bots must be enabled in your org before installation."
             - when: "not tasks.check_lightning_knowledge_enabled()"
               action: error
               message: "Lightning Knowledge must be enabled in your org before installation."
