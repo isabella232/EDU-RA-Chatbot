@@ -190,7 +190,18 @@
             </connector>
             <label>One Application</label>
         </rules>
-
+        <rules>
+            <name>Application_Count_is_Greater_Than_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varApplicationCount</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <label>Application Count is Greater Than 1</label>
+        </rules>
         <rules>
             <name>No_Applications</name>
             <conditionLogic>and</conditionLogic>
@@ -267,7 +278,7 @@
             <label>Complete</label>
         </rules>
     </decisions>
-    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2. Checklist not Numbered.V3</description>
+    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2. Checklist not Numbered.V3. Task Control</description>
     <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Status {!$Flow.CurrentDateTime}</interviewLabel>
     <label>R&amp;A Bot: Application Status</label>
     <loops>
@@ -326,7 +337,7 @@
         <connector>
             <targetReference>Task_Loop</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>1 AND 2 AND (3 OR 4 OR 5)</filterLogic>
         <filters>
             <field>WhatId</field>
             <operator>EqualTo</operator>
@@ -339,6 +350,27 @@
             <operator>NotEqualTo</operator>
             <value>
                 <stringValue>Completed</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Application Questions</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Education History Questions</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Subject</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Test Details</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -441,8 +473,7 @@
             <targetReference>Get_Applications</targetReference>
         </connector>
     </start>
-    <status>Active</status>
- 
+    <status>Draft</status>
     <variables>
         <name>GetAllApplications</name>
         <dataType>SObject</dataType>
