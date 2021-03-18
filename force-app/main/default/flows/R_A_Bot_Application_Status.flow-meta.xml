@@ -190,18 +190,9 @@
             </connector>
             <label>One Application</label>
         </rules>
-        <rules>
-            <name>Application_Count_is_Greater_Than_1</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>varApplicationCount</leftValueReference>
-                <operator>GreaterThan</operator>
-                <rightValue>
-                    <numberValue>1.0</numberValue>
-                </rightValue>
-            </conditions>
-            <label>Application Count is Greater Than 1</label>
-        </rules>
+
+
+
         <rules>
             <name>No_Applications</name>
             <conditionLogic>and</conditionLogic>
@@ -473,7 +464,10 @@
             <targetReference>Get_Applications</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+
+    <status>Active</status>
+ 
+
     <variables>
         <name>GetAllApplications</name>
         <dataType>SObject</dataType>

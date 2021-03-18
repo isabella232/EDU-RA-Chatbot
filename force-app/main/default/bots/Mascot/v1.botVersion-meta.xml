@@ -10,6 +10,10 @@
         <label>Confused Dialogues</label>
     </botDialogGroups>
     <botDialogGroups>
+        <developerName>Main_Menu_Options</developerName>
+        <label>Main Menu Options</label>
+    </botDialogGroups>
+    <botDialogGroups>
         <developerName>Security</developerName>
         <label>Security</label>
     </botDialogGroups>
@@ -22,7 +26,7 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>How can I help you today?</message>
+                <message>Here are a few ways I can help you:</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -164,13 +168,13 @@
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>What_are_the_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>What_is_my_application_status</targetBotDialog>
+                    <targetBotDialog>Check_Application_Status</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
@@ -183,6 +187,7 @@
         <showInFooterMenu>true</showInFooterMenu>
     </botDialogs>
     <botDialogs>
+        <botDialogGroup>Main_Menu_Options</botDialogGroup>
         <botSteps>
             <botMessages>
                 <message>Thank you.</message>
@@ -242,13 +247,13 @@
             <conversationRecordLookup>
                 <SObjectType>Knowledge__kav</SObjectType>
                 <lookupFields>
-                    <fieldName>Knowledge__kav.Title</fieldName>
-                </lookupFields>
-                <lookupFields>
                     <fieldName>Knowledge__kav.Summary</fieldName>
                 </lookupFields>
                 <lookupFields>
                     <fieldName>Knowledge__kav.Chatbot_URL__c</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Title</fieldName>
                 </lookupFields>
                 <maxLookupResults>1</maxLookupResults>
                 <sourceVariableName>AppDeadlineQuestion</sourceVariableName>
@@ -286,17 +291,17 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Is there anything else I can help you with?</message>
+                <message>Can I help you with anything else?</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>What_is_my_application_status</targetBotDialog>
+                    <targetBotDialog>Check_Application_Status</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
@@ -305,13 +310,14 @@
             </botNavigation>
             <type>Navigation</type>
         </botSteps>
-        <developerName>What_are_the_Application_Deadlines</developerName>
-        <label>What are the Application Deadlines?</label>
+        <developerName>Look_up_Application_Deadlines</developerName>
+        <label>Look up Application Deadlines</label>
         <mlIntent>What_are_the_Application_Deadlines</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
+        <botDialogGroup>Main_Menu_Options</botDialogGroup>
         <botSteps>
             <botStepConditions>
                 <leftOperandName>User_Verified</leftOperandName>
@@ -363,13 +369,14 @@
             </botNavigation>
             <type>Navigation</type>
         </botSteps>
-        <developerName>What_is_my_application_status</developerName>
-        <label>What is my Application Status?</label>
+        <developerName>Check_Application_Status</developerName>
+        <label>Check Application Status</label>
         <mlIntent>What_is_my_application_status</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
+        <botDialogGroup>Main_Menu_Options</botDialogGroup>
         <botSteps>
             <botMessages>
                 <message>I’ve found some information to share with you about how to connect with an Admissions Counselor.</message>
@@ -423,17 +430,17 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Is there anything else I can help you with?</message>
+                <message>Can I help you with anything else?</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>What_are_the_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>What_is_my_application_status</targetBotDialog>
+                    <targetBotDialog>Check_Application_Status</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
@@ -442,13 +449,14 @@
             </botNavigation>
             <type>Navigation</type>
         </botSteps>
-        <developerName>Speak_with_an_Admissions_Counselor</developerName>
-        <label>Contact an Admissions Counselor.</label>
+        <developerName>Contact_an_Admissions_Counselor</developerName>
+        <label>Contact an Admissions Counselor</label>
         <mlIntent>Speak_with_an_Admissions_Counselor</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
+        <botDialogGroup>Main_Menu_Options</botDialogGroup>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
@@ -563,7 +571,7 @@
             </botSteps>
             <botSteps>
                 <botMessages>
-                    <message>Is there anything else I can assist you with?</message>
+                    <message>Can I help you with anything else?</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -578,7 +586,7 @@
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>Is there anything else I can assist you with?</message>
+                    <message>Can I help you with anything else?</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -587,10 +595,10 @@
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>What_are_the_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
@@ -905,17 +913,17 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Is there anything else I can assist you with?</message>
+                <message>Can I help you with anything else?</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>What_are_the_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
@@ -1006,7 +1014,7 @@
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1038,12 +1046,6 @@
         <botSteps>
             <botMessages>
                 <message>I have your email address now.</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
-        <botSteps>
-            <botMessages>
-                <message>Let me check for your application.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -1125,10 +1127,13 @@
                 <rightOperandValue>1</rightOperandValue>
             </botStepConditions>
             <botSteps>
-                <botMessages>
-                    <message>Great!  I found it!</message>
-                </botMessages>
-                <type>Message</type>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Verification_Code_Send</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
             </botSteps>
             <type>Group</type>
         </botSteps>
@@ -1148,7 +1153,7 @@
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1174,7 +1179,7 @@
         <botDialogGroup>Security</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>I am going to send a verification code to that email address.</message>
+                <message>OK, I just sent the code.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -1213,14 +1218,7 @@
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
-            <botMessages>
-                <message>DEBUG MESSAGE:
-{!Verification_Code_Issued}
-{!Verification_Code_Expiration}</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
-        <botSteps>
+
             <botVariableOperation>
                 <botMessages>
                     <message>Can you please check your email and enter the code here within the next 5 minutes?</message>
@@ -1542,17 +1540,17 @@ Note you only have 5 minutes to enter the code.</message>
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Is there anything else I can help you with?</message>
+                <message>Can I help you with anything else?</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>What_are_the_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
@@ -1626,20 +1624,13 @@ Note you only have 5 minutes to enter the code.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
                 <type>Navigation</type>
             </botSteps>
             <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botMessages>
-                <message>DEBUG MESSAGE:
-{!Verification_Code_Issued}</message>
-            </botMessages>
-            <type>Message</type>
         </botSteps>
         <botSteps>
             <botVariableOperation>
@@ -1802,7 +1793,7 @@ Please reach out to an Admissions Counsellor.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1945,7 +1936,7 @@ Please reach out to an Admissions Counsellor.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1972,7 +1963,7 @@ Please reach out to an Admissions Counsellor.</message>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
@@ -1993,10 +1984,10 @@ Please reach out to an Admissions Counsellor.</message>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>What_are_the_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>Speak_with_an_Admissions_Counselor</targetBotDialog>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
