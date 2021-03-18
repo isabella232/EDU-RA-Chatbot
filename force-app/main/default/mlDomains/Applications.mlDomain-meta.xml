@@ -670,6 +670,417 @@
         <mlIntentUtterances>
             <utterance>Thank you, I&apos;m all done</utterance>
         </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>bye bye night night</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>can we exit this chat now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>can you end this chat session for me</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>can you please end this chat session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>can you terminate this chat session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>close this session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>end session now please</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>end the chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>end this conversation</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>ending chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>exit chat session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>goodbye Chatbot</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>goodbye that&apos;s all i needed</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>Goodbye!</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>goodnight I&apos;ll talk to you soon</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>great thank you goodbye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>have a great day</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>Have a nice day, that is all I need for now.</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>how to end chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I am done</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>i am done with this chat and we can end it</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I am exiting the chat session thank you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I am finished thanks</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I am now leaving the chat window</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I am now requesting to end this conversation please</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I am signing off now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I appreciate all the help thank you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>i do not need anything else</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I don&apos;t have any other questions thank you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I don&apos;t need any further assistance</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I don&apos;t want to chat anymore</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I don&apos;t want to continue</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>i got the needed help and now i need to leave</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I have another call</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I have everything I need thank you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>i have no further questions and am going to disconnect</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I have nothing else to discuss</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I have the information I need end chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I have to go now, I&apos;ll talk to you tomorrow</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I learned what I needed thank you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I need to exit our conversation now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I need to go now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I no longer need assistance</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I think we are done here</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>i want to end now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I want to finish this chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I want to stop chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I will talk to you tomorrow</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I would like to end the current session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I would like to finish this chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I would like to stop this conversation now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I would like to terminate this chat session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I&apos;d like to end the chat now, thank you!</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I&apos;d like to exit this chat please</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>i&apos;m done talking to you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I&apos;m done with this chat now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I&apos;m ending this chat now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I&apos;m finished with this conversation</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I&apos;m going to end the chat now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I&apos;m leaving now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>issue is resolved</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>It was a nice conversation, Thank you.</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>It was very nice chatting with you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>I&apos;ve received all of the help I need. Thanks!</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>My issue has been resolved, I&apos;m going to close the chat now.</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>my issues were covered</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>no I don&apos;t need anymore assistance</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>no more questions</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>No more questions goodbye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>no that&apos;s all thank you for your service</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>no there is nothing else goodbye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>nothing more</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>ok I&apos;m done now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>ok I&apos;m good</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>ok thank you I&apos;d like to end this chat now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>ok thank you so much good bye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>ok thanks for the help</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>okay goodbye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>okay I have the information I need</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>okay I&apos;m done</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>Okay, thank you.</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>please close out the chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>please end chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>please end this conversation</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>please terminate this session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>see ya thanks</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>shut down</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>signing off now thank you goodbye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>stop this session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>take care and have a good day</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>talk to you later</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>terminate chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you all my questions have been answered</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you bye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you chatbot please end my session</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you for the assistance</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you for your help</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you for your time</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you have a good day</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you I am finished</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you I have all information needed</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you my problem is resolved</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you please end chat</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you so much I don&apos;t have anymore questions</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you that will be all the help I need</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thank you that&apos;s all</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>Thank you!</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thanks for the help</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>Thanks for you support.</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thanks for your help</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thanks for your service today</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thanks goodbye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thanks have a good day</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thanks I don&apos;t need any more help</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>thanks that is all</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>Thanks! Goodbye.</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that answered all my questions</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that is all bye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that is all thank you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that is everything</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that was all I needed</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that was helpful</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that&apos;s all</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>That&apos;s all for the day.</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that&apos;s it bye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>that&apos;s what I needed goodbye</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>there is nothing else I need right now</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>this concludes my questions</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>we&apos;re done here</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>you have addressed all of my issues</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>you have been very helpful</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>you have provided much help thank you</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>you resolved my concern</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>your help was appreciated</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>you&apos;ve answered all of my questions</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>you&apos;ve been very helpful</utterance>
+        </mlIntentUtterances>
+        <mlIntentUtterances>
+            <utterance>you&apos;ve taken care of everything for me</utterance>
+        </mlIntentUtterances>
     </mlIntents>
     <mlIntents>
         <description>Allows a user to return to the main menu.</description>
