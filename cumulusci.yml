@@ -7,6 +7,7 @@ project:
     dependencies:
         - github: 'https://github.com/SalesforceFoundation/omega'
     git:
+        repo_url: https://github.com/SalesforceFoundation/EDU-RA-Chatbot
     source_format: sfdx
 
 sources:
@@ -107,7 +108,12 @@ flows:
                 options:
                     path: force-app/
 
-
+    customer_org:
+        steps:
+            1:
+                flow: dependencies
+            2:
+                flow: customer_org_minimal
 
 plans:
     install:
@@ -119,10 +125,10 @@ plans:
         post_install_message: "Thanks for installing Admissions Connect Chatbot. Visit the [Admissions Connect topic](https://powerofus.force.com/s/topic/0TO1E000000EA4xWAG/admissions-connect) on the Power of Us Hub for any questions about Admissions Connect."
         error_message: "If you experience an issue with installation, please post in the [Power of Us Hub](https://powerofus.force.com/s/topic/0TO1E000000EA4xWAG/admissions-connect)."
         checks:
-            - when: 'not "randa" in org_config.installed_packages'
+            - when: '"randa" not in org_config.installed_packages'
               action: error
               message: "Admissions Connect must be installed in your org before installation."
-            - when: 'not "sfdc_chatbot_service_permset" in tasks.get_available_permsets()'
+            - when: '"sfdc_chatbot_service_permset" not in tasks.get_available_permsets()'
               action: error
               message: "Einstein Bots must be enabled in your org before installation."
             - when: "not tasks.check_lightning_knowledge_enabled()"
