@@ -379,7 +379,7 @@
         <botDialogGroup>Main_Menu_Options</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>Here&apos;s how you can connect with someone from the Admissions Team</message>
+                <message>Let’s get you in touch with an Admissions Counselor</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
