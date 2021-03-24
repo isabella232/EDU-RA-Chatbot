@@ -53,6 +53,10 @@
         "deploy": {
             "message": "deploy",
             "description": "title of installation step"
+        },
+        "Install Admissions Connect Chatbot": {
+            "message": "Install Admissions Connect Chatbot",
+            "description": "title of installation step"
         }
     }
 }
