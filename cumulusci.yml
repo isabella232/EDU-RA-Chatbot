@@ -107,6 +107,8 @@ flows:
                 task: deploy
                 options:
                     path: force-app/
+                ui_options:
+                    name: "Install Admissions Connect Chatbot"
 
     customer_org:
         steps:
