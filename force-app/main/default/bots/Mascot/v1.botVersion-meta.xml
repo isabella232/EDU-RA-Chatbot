@@ -379,7 +379,7 @@
         <botDialogGroup>Main_Menu_Options</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>I’ve found some information to share with you about how to connect with an Admissions Counselor.</message>
+                <message>Let’s get you in touch with an Admissions Counselor</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -1218,7 +1218,6 @@
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
-
             <botVariableOperation>
                 <botMessages>
                     <message>Can you please check your email and enter the code here within the next 5 minutes?</message>
@@ -1566,41 +1565,19 @@ Note you only have 5 minutes to enter the code.</message>
     <botDialogs>
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
-            <botVariableOperation>
-                <botMessages>
-                    <message>It appears you have multiple applications. Please select one of the following:</message>
-                </botMessages>
-                <botVariableOperands>
-                    <disableAutoFill>true</disableAutoFill>
-                    <sourceName>_Object</sourceName>
-                    <sourceType>StandardMlSlotClass</sourceType>
-                    <targetName>ApplicationSelection</targetName>
-                    <targetType>ConversationVariable</targetType>
-                </botVariableOperands>
-                <invalidInputBotNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Confused</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Call</type>
-                </invalidInputBotNavigation>
-                <optionalCollect>false</optionalCollect>
-                <quickReplyOptionTemplate>{!Bot_App_Status__c}</quickReplyOptionTemplate>
-                <quickReplyType>Dynamic</quickReplyType>
-                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
-                <sourceVariableName>ApplicationList</sourceVariableName>
-                <sourceVariableType>ConversationVariable</sourceVariableType>
-                <type>Collect</type>
-            </botVariableOperation>
-            <type>VariableOperation</type>
-        </botSteps>
-        <botSteps>
             <botMessages>
-                <message>Thank you. Your application is currently listed as {!ApplicationSelection.hed__Application_Status__c}</message>
+                <message>It appears you have multiple applications. Please talk to a member of our team.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <type>Wait</type>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
         </botSteps>
         <developerName>Multiple_Applications</developerName>
         <label>Multiple Applications</label>
@@ -1956,7 +1933,7 @@ Please reach out to an Admissions Counsellor.</message>
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>It looks like we don&apos;t have any applications of file based on your information. Let me see if I can connect you with someone that can help you.</message>
+                <message>It looks like we don&apos;t have any applications on file based on your information. Let me see if I can connect you with someone that can help you.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
