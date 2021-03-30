@@ -1218,7 +1218,6 @@
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
-
             <botVariableOperation>
                 <botMessages>
                     <message>Can you please check your email and enter the code here within the next 5 minutes?</message>
@@ -1566,41 +1565,19 @@ Note you only have 5 minutes to enter the code.</message>
     <botDialogs>
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
-            <botVariableOperation>
-                <botMessages>
-                    <message>It appears you have multiple applications. Please select one of the following:</message>
-                </botMessages>
-                <botVariableOperands>
-                    <disableAutoFill>true</disableAutoFill>
-                    <sourceName>_Object</sourceName>
-                    <sourceType>StandardMlSlotClass</sourceType>
-                    <targetName>ApplicationSelection</targetName>
-                    <targetType>ConversationVariable</targetType>
-                </botVariableOperands>
-                <invalidInputBotNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Confused</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Call</type>
-                </invalidInputBotNavigation>
-                <optionalCollect>false</optionalCollect>
-                <quickReplyOptionTemplate>{!Bot_App_Status__c}</quickReplyOptionTemplate>
-                <quickReplyType>Dynamic</quickReplyType>
-                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
-                <sourceVariableName>ApplicationList</sourceVariableName>
-                <sourceVariableType>ConversationVariable</sourceVariableType>
-                <type>Collect</type>
-            </botVariableOperation>
-            <type>VariableOperation</type>
-        </botSteps>
-        <botSteps>
             <botMessages>
-                <message>Thank you. Your application is currently listed as {!ApplicationSelection.hed__Application_Status__c}</message>
+                <message>It appears you have multiple applications. Let me see if I can connect you with someone that can help you with them.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <type>Wait</type>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
         </botSteps>
         <developerName>Multiple_Applications</developerName>
         <label>Multiple Applications</label>
