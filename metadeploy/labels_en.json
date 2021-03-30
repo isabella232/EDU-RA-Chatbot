@@ -1,0 +1,58 @@
+{
+    "product": {
+        "title": {
+            "message": "Admissions Connect Chatbot",
+            "description": "name of product"
+        },
+        "short_description": {
+            "message": "Connect Applicants with Basic Admissions Questions",
+            "description": "tagline of product"
+        },
+        "description": {
+            "message": "Welcome to the Admissions Connect Chatbot installer!\r\n\r\nFor installation details, see the [Admissions Connect Documentation](https://powerofus.force.com/s/article/AC-Documentation).\r\n\r\nIMPORTANT: Salesforce does not recommend installing directly in production organizations. Instead, install in one of your free sandbox environments, or a developer organization first.",
+            "description": "shown on product detail page (markdown)"
+        },
+        "error_message": {
+            "message": "If you experience an issue with installation, please post in the [Power of Us Hub](https://powerofus.force.com/s/topic/0TO1E000000EA4xWAG/admissions-connect).",
+            "description": "shown after failed installation (markdown)"
+        }
+    },
+    "plan:install": {
+        "title": {
+            "message": "Install Admissions Connect Chatbot",
+            "description": "title of installation plan"
+        },
+        "preflight_message": {
+            "message": "This installs Admissions Connect Chatbot into your org.",
+            "description": "shown before user starts installation (markdown)"
+        },
+        "post_install_message": {
+            "message": "Thanks for installing Admissions Connect Chatbot. Visit the [Admissions Connect topic](https://powerofus.force.com/s/topic/0TO1E000000EA4xWAG/admissions-connect) on the Power of Us Hub for any questions about Admissions Connect.",
+            "description": "shown after successful installation (markdown)"
+        },
+        "error_message": {
+            "message": "If you experience an issue with installation, please post in the [Power of Us Hub](https://powerofus.force.com/s/topic/0TO1E000000EA4xWAG/admissions-connect).",
+            "description": "shown after failed installation (markdown)"
+        }
+    },
+    "checks": {
+        "Admissions Connect must be installed in your org before installation.": {
+            "message": "Admissions Connect must be installed in your org before installation.",
+            "description": "shown if validation fails"
+        },
+        "Einstein Bots must be enabled in your org before installation.": {
+            "message": "Einstein Bots must be enabled in your org before installation.",
+            "description": "shown if validation fails"
+        },
+        "Lightning Knowledge must be enabled in your org before installation.": {
+            "message": "Lightning Knowledge must be enabled in your org before installation.",
+            "description": "shown if validation fails"
+        }
+    },
+    "steps": {
+        "Install Admissions Connect Chatbot": {
+            "message": "Install Admissions Connect Chatbot",
+            "description": "title of installation step"
+        }
+    }
+}
