@@ -56,18 +56,6 @@ tasks:
             path: unpackaged/config/dev
             unmanaged: false
 
-    get_available_permsets:
-        description: Retrieves a list of available permission sets in the org
-        class_path: cumulusci.tasks.preflight.licenses.GetAvailablePermissionSets
-
-    check_lightning_knowledge_enabled:
-        description: Checks if Lightning Knowledge is enabled in the org
-        class_path: cumulusci.tasks.preflight.settings.CheckSettingsValue
-        options:
-            settings_type: KnowledgeSettings
-            settings_field: IsLightningKnowledgeEnabled
-            value: True
-
 flows:
     dependencies:
         steps:
@@ -130,7 +118,7 @@ plans:
             - when: '"randa" not in org_config.installed_packages'
               action: error
               message: "Admissions Connect must be installed in your org before installation."
-            - when: '"sfdc_chatbot_service_permset" not in tasks.get_available_permsets()'
+            - when: '"sfdc_chatbot_service_permset" not in tasks.get_available_permission_sets()'
               action: error
               message: "Einstein Bots must be enabled in your org before installation."
             - when: '"Knowledge__kav" not in tasks.check_sobjects_available()'
