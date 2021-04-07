@@ -133,7 +133,7 @@ plans:
             - when: '"sfdc_chatbot_service_permset" not in tasks.get_available_permsets()'
               action: error
               message: "Einstein Bots must be enabled in your org before installation."
-            - when: "not tasks.check_lightning_knowledge_enabled()"
+            - when: '"Knowledge__kav" not in tasks.check_sobjects_available()'
               action: error
               message: "Lightning Knowledge must be enabled in your org before installation."
 
