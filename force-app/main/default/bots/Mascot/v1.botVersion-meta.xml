@@ -381,7 +381,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botDialogGroup>Main_Menu_Options</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>Got it.</message>
+                <message>Let’s get you in touch with an Admissions Counselor</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -1586,6 +1586,27 @@ Note you only have 5 minutes to enter the code.</message>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
+        <botDialogGroup>Application_Status</botDialogGroup>
+        <botSteps>
+            <botMessages>
+                <message>It appears you have multiple applications. Please talk to a member of our team.</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
+        </botSteps>
+        <developerName>Multiple_Applications</developerName>
+        <label>Multiple Applications</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
         <botDialogGroup>Security</botDialogGroup>
         <botSteps>
             <botStepConditions>
@@ -1935,7 +1956,7 @@ Please reach out to an Admissions Counsellor.</message>
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>It looks like we don&apos;t have any applications of file based on your information. Let me see if I can connect you with someone that can help you.</message>
+                <message>It looks like we don&apos;t have any applications on file based on your information. Let me see if I can connect you with someone that can help you.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
