@@ -25,12 +25,6 @@
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botMessages>
-                <message>Here are a few ways I can help you:</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
-        <botSteps>
             <botSteps>
                 <botVariableOperation>
                     <botVariableOperands>
@@ -166,6 +160,12 @@
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
+            <botMessages>
+                <message>Here are a few things I can help with. Please select from the following options:</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
             <botNavigation>
                 <botNavigationLinks>
                     <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
@@ -279,13 +279,15 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>I’ve found some information to share with you about the application deadlines.</message>
+                <message>OK, here&apos;s what I found:</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>{!AppDeadlineKnowledgeResults[0].Summary}. Link:{!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
+                <message>{!AppDeadlineKnowledgeResults[0].Summary}. 
+
+Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -311,7 +313,7 @@
             <type>Navigation</type>
         </botSteps>
         <developerName>Look_up_Application_Deadlines</developerName>
-        <label>Look up Application Deadlines</label>
+        <label>Review Application Deadlines</label>
         <mlIntent>What_are_the_Application_Deadlines</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
         <showInFooterMenu>false</showInFooterMenu>
@@ -370,7 +372,7 @@
             <type>Navigation</type>
         </botSteps>
         <developerName>Check_Application_Status</developerName>
-        <label>Check Application Status</label>
+        <label>Check My Application Status</label>
         <mlIntent>What_is_my_application_status</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
         <showInFooterMenu>false</showInFooterMenu>
@@ -379,7 +381,7 @@
         <botDialogGroup>Main_Menu_Options</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>I’ve found some information to share with you about how to connect with an Admissions Counselor.</message>
+                <message>Let’s get you in touch with an Admissions Counselor</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -424,7 +426,8 @@
         <botSteps>
             <botMessages>
                 <message>{!AppDeadlineKnowledgeResults[0].Summary}
-{!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
+
+Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -489,7 +492,7 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Your application status is {!Application_Status}.</message>
+                <message>Your application is {!Application_Status}. You&apos;ve submitted 100% of the required items.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -638,7 +641,13 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Your application status is {!Application_Status} and is {!ChecklistCompletionText}% completed.</message>
+                <message>Let me check for your application.</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>OK, here’s what I found:</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -662,6 +671,12 @@
                 <rightOperandValue>complete</rightOperandValue>
             </botStepConditions>
             <botSteps>
+                <botMessages>
+                    <message>Your application is still {!Application_Status}.</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
                         <targetBotDialog>Application_Additional_Menu</targetBotDialog>
@@ -673,9 +688,15 @@
             <type>Group</type>
         </botSteps>
         <botSteps>
+            <botMessages>
+                <message>Your application is still {!Application_Status} and {!ChecklistCompletionText}% of the required items are complete.</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
             <botVariableOperation>
                 <botMessages>
-                    <message>Would you like more information on what items are outstanding?</message>
+                    <message>Would you like more information about the outstanding items?</message>
                 </botMessages>
                 <botQuickReplyOptions>
                     <literalValue>Yes</literalValue>
@@ -718,7 +739,7 @@
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>Here are the remaining items that are required:</message>
+                    <message>Alright, here are the remaining required items.</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -751,7 +772,7 @@
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>Here are the remaining items that are required:</message>
+                    <message>Alright, here are the remaining required items.</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -784,7 +805,7 @@
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>Here are the remaining items that are required:</message>
+                    <message>Alright, here are the remaining required items.</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -818,7 +839,7 @@
         <botSteps>
             <botVariableOperation>
                 <botMessages>
-                    <message>Would you like more information related to these items?</message>
+                    <message>Would you like more information about these items?</message>
                 </botMessages>
                 <botQuickReplyOptions>
                     <literalValue>Yes</literalValue>
@@ -887,7 +908,9 @@
             </botStepConditions>
             <botSteps>
                 <botMessages>
-                    <message>{!AppDeadlineKnowledgeResults[0].Summary} link: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
+                    <message>{!AppDeadlineKnowledgeResults[0].Summary}
+
+Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                 </botMessages>
                 <type>Message</type>
             </botSteps>
@@ -955,7 +978,7 @@
         <botDialogGroup>Security</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>To check your application status, I first need to verify your identity.</message>
+                <message>OK, before we proceed, I&apos;ll need to verify your identity.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -994,7 +1017,7 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>I’ll do that by sending you an email with a temporary code.</message>
+                <message>I&apos;ll send you an email with a temporary passcode.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -1014,7 +1037,7 @@
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Route_to_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1045,7 +1068,7 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>I have your email address now.</message>
+                <message>Thanks.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -1153,7 +1176,7 @@
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Route_to_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1179,7 +1202,7 @@
         <botDialogGroup>Security</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>OK, I just sent the code.</message>
+                <message>Alright, I just sent you an email with the passcode.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -1218,10 +1241,9 @@
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
-
             <botVariableOperation>
                 <botMessages>
-                    <message>Can you please check your email and enter the code here within the next 5 minutes?</message>
+                    <message>Please check your email and enter the code here.</message>
                 </botMessages>
                 <botVariableOperands>
                     <disableAutoFill>true</disableAutoFill>
@@ -1324,6 +1346,12 @@ Note you only have 5 minutes to enter the code.</message>
                 <rightOperandValue>true</rightOperandValue>
             </botStepConditions>
             <botSteps>
+                <botMessages>
+                    <message>Thank you.</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
                         <targetBotDialog>Temp_App_Status</targetBotDialog>
@@ -1378,12 +1406,6 @@ Note you only have 5 minutes to enter the code.</message>
     </botDialogs>
     <botDialogs>
         <botDialogGroup>Application_Status</botDialogGroup>
-        <botSteps>
-            <botMessages>
-                <message>Thanks!</message>
-            </botMessages>
-            <type>Message</type>
-        </botSteps>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
@@ -1530,7 +1552,7 @@ Note you only have 5 minutes to enter the code.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Multiple_Applications</targetBotDialog>
+                        <targetBotDialog>Applications_Multiple</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1566,41 +1588,19 @@ Note you only have 5 minutes to enter the code.</message>
     <botDialogs>
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
-            <botVariableOperation>
-                <botMessages>
-                    <message>It appears you have multiple applications. Please select one of the following:</message>
-                </botMessages>
-                <botVariableOperands>
-                    <disableAutoFill>true</disableAutoFill>
-                    <sourceName>_Object</sourceName>
-                    <sourceType>StandardMlSlotClass</sourceType>
-                    <targetName>ApplicationSelection</targetName>
-                    <targetType>ConversationVariable</targetType>
-                </botVariableOperands>
-                <invalidInputBotNavigation>
-                    <botNavigationLinks>
-                        <targetBotDialog>Confused</targetBotDialog>
-                    </botNavigationLinks>
-                    <type>Call</type>
-                </invalidInputBotNavigation>
-                <optionalCollect>false</optionalCollect>
-                <quickReplyOptionTemplate>{!Bot_App_Status__c}</quickReplyOptionTemplate>
-                <quickReplyType>Dynamic</quickReplyType>
-                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
-                <sourceVariableName>ApplicationList</sourceVariableName>
-                <sourceVariableType>ConversationVariable</sourceVariableType>
-                <type>Collect</type>
-            </botVariableOperation>
-            <type>VariableOperation</type>
-        </botSteps>
-        <botSteps>
             <botMessages>
-                <message>Thank you. Your application is currently listed as {!ApplicationSelection.hed__Application_Status__c}</message>
+                <message>It appears you have multiple applications. Please talk to a member of our team.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <type>Wait</type>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
         </botSteps>
         <developerName>Multiple_Applications</developerName>
         <label>Multiple Applications</label>
@@ -1624,7 +1624,7 @@ Note you only have 5 minutes to enter the code.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Route_to_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1723,7 +1723,7 @@ Please reach out to an Admissions Counsellor.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Route_to_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1793,7 +1793,7 @@ Please reach out to an Admissions Counsellor.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Route_to_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1936,7 +1936,7 @@ Please reach out to an Admissions Counsellor.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                        <targetBotDialog>Route_to_Counselor</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1956,14 +1956,14 @@ Please reach out to an Admissions Counsellor.</message>
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>It looks like we don&apos;t have any applications of file based on your information. Let me see if I can connect you with someone that can help you.</message>
+                <message>It looks like we don&apos;t have any applications on file based on your information. Let me see if I can connect you with someone that can help you.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
+                    <targetBotDialog>Route_to_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
@@ -1998,6 +1998,99 @@ Please reach out to an Admissions Counsellor.</message>
         </botSteps>
         <developerName>Application_Additional_Menu</developerName>
         <label>Application Additional Menu</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botDialogGroup>Application_Status</botDialogGroup>
+        <botSteps>
+            <botMessages>
+                <message>It appears you have multiple applications. Let me see if I can connect you with someone that can help you with them.</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Route_to_Counselor</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
+        </botSteps>
+        <developerName>Applications_Multiple</developerName>
+        <label>Applications - Multiple</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>R_A_Bot_Knowledge_Variable_Admissions_Counselor</invocationActionName>
+                    <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>varKnowledgeArticleSearch</parameterName>
+                        <type>Output</type>
+                        <variableName>KArticleHelp</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+            </botVariableOperation>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <conversationRecordLookup>
+                <SObjectType>Knowledge__kav</SObjectType>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Title</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Summary</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.Chatbot_URL__c</fieldName>
+                </lookupFields>
+                <lookupFields>
+                    <fieldName>Knowledge__kav.UrlName</fieldName>
+                </lookupFields>
+                <maxLookupResults>1</maxLookupResults>
+                <sourceVariableName>KArticleHelp</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <targetVariableName>AppDeadlineKnowledgeResults</targetVariableName>
+            </conversationRecordLookup>
+            <type>RecordLookup</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>{!AppDeadlineKnowledgeResults[0].Summary}
+
+Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Can I help you with anything else?</message>
+            </botMessages>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>Check_Application_Status</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>End_Chat</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <type>Navigation</type>
+        </botSteps>
+        <developerName>Route_to_Counselor</developerName>
+        <label>Route to Counselor</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <conversationSystemDialogs>

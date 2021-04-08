@@ -33,7 +33,7 @@
             <assignToReference>varChecklistAllItems</assignToReference>
             <operator>Add</operator>
             <value>
-                <stringValue>-  {!Checklist_Loop.Name}  is listed as {!Checklist_Loop.Status}</stringValue>
+                <stringValue>-  {!Checklist_Loop.Name} is {!Checklist_Loop.Status}</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -149,19 +149,6 @@
             <targetReference>Count_of_Applications_Decision</targetReference>
         </connector>
     </assignments>
-    <assignments>
-        <name>Debug</name>
-        <label>Debug</label>
-        <locationX>236</locationX>
-        <locationY>783</locationY>
-        <assignmentItems>
-            <assignToReference>varDebugMessage</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>No Apps. Sorry!</stringValue>
-            </value>
-        </assignmentItems>
-    </assignments>
     <constants>
         <name>varPadding</name>
         <dataType>String</dataType>
@@ -172,7 +159,7 @@
     <decisions>
         <name>Count_of_Applications_Decision</name>
         <label>Count of Applications Decision</label>
-        <locationX>560</locationX>
+        <locationX>559</locationX>
         <locationY>507</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -190,9 +177,6 @@
             </connector>
             <label>One Application</label>
         </rules>
-
-
-
         <rules>
             <name>No_Applications</name>
             <conditionLogic>and</conditionLogic>
@@ -203,9 +187,6 @@
                     <numberValue>0.0</numberValue>
                 </rightValue>
             </conditions>
-            <connector>
-                <targetReference>Debug</targetReference>
-            </connector>
             <label>No Applications</label>
         </rules>
     </decisions>
@@ -263,13 +244,20 @@
                     <stringValue>Accepted Offer</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>Get_One_Application.hed__Application_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Declined Offer</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Assign_Complete_Status</targetReference>
             </connector>
             <label>Complete</label>
         </rules>
     </decisions>
-    <description>Custom Application Collection Variable - Subflow - Tasks Criteria Update. - Test Percentage - Convert Number to Text on Checklist - added child item counts - Doc Checklist Get criteria + Checklist Criteria Update.v2. Checklist not Numbered.V3. Task Control</description>
+    <description>Used  by Admissions Bot for Application Status Dialogues</description>
     <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Status {!$Flow.CurrentDateTime}</interviewLabel>
     <label>R&amp;A Bot: Application Status</label>
     <loops>
@@ -385,13 +373,19 @@
                 <elementReference>varContactId</elementReference>
             </value>
         </filters>
+        <filters>
+            <field>Term_End_Date__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <elementReference>varSessionDate</elementReference>
+            </value>
+        </filters>
         <object>hed__Application__c</object>
         <outputReference>GetAllApplications</outputReference>
         <queriedFields>Id</queriedFields>
         <queriedFields>hed__Application_Status__c</queriedFields>
         <queriedFields>hed__Applying_To__c</queriedFields>
         <queriedFields>hed__Term__c</queriedFields>
-        <queriedFields>Bot_App_Status__c</queriedFields>
         <queriedFields>randa__Checklist_Completion__c</queriedFields>
     </recordLookups>
     <recordLookups>
@@ -403,19 +397,12 @@
         <connector>
             <targetReference>Checklist_Loop</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
+        <filterLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6 OR 7)</filterLogic>
         <filters>
             <field>Status</field>
             <operator>NotEqualTo</operator>
             <value>
                 <stringValue>Accepted</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>IsRequired</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>true</booleanValue>
             </value>
         </filters>
         <filters>
@@ -430,6 +417,34 @@
             <operator>NotEqualTo</operator>
             <value>
                 <stringValue>Rejected</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Writing Supplement</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Official Transcript</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Counselor Recommendation</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Teacher Evaluation</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>
@@ -464,10 +479,7 @@
             <targetReference>Get_Applications</targetReference>
         </connector>
     </start>
-
     <status>Active</status>
- 
-
     <variables>
         <name>GetAllApplications</name>
         <dataType>SObject</dataType>
@@ -549,6 +561,16 @@
         <isInput>false</isInput>
         <isOutput>true</isOutput>
         <scale>0</scale>
+    </variables>
+    <variables>
+        <name>varSessionDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDate</elementReference>
+        </value>
     </variables>
     <variables>
         <name>varTaskListAllItems</name>
