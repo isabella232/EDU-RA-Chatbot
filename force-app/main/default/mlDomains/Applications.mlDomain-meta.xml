@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MlDomain xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Grouping of intents for application inquiries and applications.</description>
+    <description>Intents and utterances that support the Admissions Connect chatbot.</description>
     <label>Applications</label>
     <mlIntents>
-        <description>Used to managed the inquiries about Application Deadlines.</description>
+        <description>What are the application deadlines?</description>
         <developerName>Application_Deadline</developerName>
         <label>Application Deadline</label>
         <mlIntentUtterances>
@@ -347,7 +347,7 @@
         </mlIntentUtterances>
     </mlIntents>
     <mlIntents>
-        <description>sample description goes here</description>
+        <description>What’s the status of my application?</description>
         <developerName>Application_Status</developerName>
         <label>Application Status</label>
         <mlIntentUtterances>
@@ -628,7 +628,7 @@
         </mlIntentUtterances>
     </mlIntents>
     <mlIntents>
-        <description>sample description goes here</description>
+        <description>End chat</description>
         <developerName>Done</developerName>
         <label>Done</label>
         <mlIntentUtterances>
@@ -1083,7 +1083,7 @@
         </mlIntentUtterances>
     </mlIntents>
     <mlIntents>
-        <description>Allows a user to return to the main menu.</description>
+        <description>Go to the main menu</description>
         <developerName>Main_Menu</developerName>
         <label>Main Menu</label>
         <mlIntentUtterances>
@@ -1097,9 +1097,9 @@
         </mlIntentUtterances>
     </mlIntents>
     <mlIntents>
-        <description>sample description goes here</description>
+        <description>Additional questions</description>
         <developerName>Something_else</developerName>
-        <label>Something else</label>
+        <label>Something Else</label>
         <mlIntentUtterances>
             <utterance>back</utterance>
         </mlIntentUtterances>
@@ -1348,7 +1348,7 @@
         </mlIntentUtterances>
     </mlIntents>
     <mlIntents>
-        <description>sample description goes here</description>
+        <description>How do I contact an admissions counselor?</description>
         <developerName>Speak_with_Counselor</developerName>
         <label>Speak with Counselor</label>
         <mlIntentUtterances>

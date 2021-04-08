@@ -58,7 +58,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Verification Code - Application Inquiry</stringValue>
+                <stringValue>Verification Code for Your Application Inquiry</stringValue>
             </value>
         </inputParameters>
     </actionCalls>
@@ -151,11 +151,12 @@
         <description>body of the email</description>
         <name>varEmailBody</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>Hello!
-Please enter the following code into your Chat Session.
-{!varRandomString}
-This code will expire in 5 minutes.
-Thank you!</text>
+        <text>Hello,
+
+Enter {!varRandomString} into your chat session. This code expires in 5 minutes. 
+
+Thank you,
+The Admissions Chatbot</text>
     </textTemplates>
     <variables>
         <description>this is the email address of the Applicant</description>
