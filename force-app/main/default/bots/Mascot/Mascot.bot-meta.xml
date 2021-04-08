@@ -89,7 +89,6 @@
         </mlSlotClasses>
         <name>Mascot</name>
     </botMlDomain>
-   
     <contextVariables>
         <dataType>Text</dataType>
         <developerName>ApplicationSelectionText</developerName>
@@ -135,7 +134,7 @@
         <developerName>RoutableId</developerName>
         <label>Routable Id</label>
     </contextVariables>
-    <description>A bot that helps your applicants with common application questions and then connect to Admissions Counsellors.</description>
+    <description>Answer common admissions questions for applicants.</description>
     <label>Mascot</label>
     <logPrivateConversationData>true</logPrivateConversationData>
 </Bot>

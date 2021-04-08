@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Details__c</fullName>
+    <description>Details about the Knowledge article. The information is visible only when viewing the Knowledge article; the education chatbot doesn’t use it in in conversation.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Details about the Knowledge article. The information is visible only when viewing the Knowledge article; the education chatbot doesn’t use it in in conversation.</inlineHelpText>
     <label>Details</label>
     <length>10000</length>
     <type>Html</type>

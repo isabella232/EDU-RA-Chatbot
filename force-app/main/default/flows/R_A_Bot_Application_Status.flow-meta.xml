@@ -33,7 +33,7 @@
             <assignToReference>varChecklistAllItems</assignToReference>
             <operator>Add</operator>
             <value>
-                <stringValue>-  {!Checklist_Loop.Name} is listed as {!Checklist_Loop.Status}</stringValue>
+                <stringValue>-  {!Checklist_Loop.Name} is {!Checklist_Loop.Status}</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -242,6 +242,13 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Accepted Offer</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_One_Application.hed__Application_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Declined Offer</stringValue>
                 </rightValue>
             </conditions>
             <connector>

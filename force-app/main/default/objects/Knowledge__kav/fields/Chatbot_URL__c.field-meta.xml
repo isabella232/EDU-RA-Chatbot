@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Chatbot_URL__c</fullName>
-    <defaultValue>&quot;https://[Experience URL goes here]/[Experience Name goes here]/s/article/[Knowledge URL]&quot;</defaultValue>
-    <description>URL used by Admissions Chatbot to redirect users to a complete articles site.</description>
+    <defaultValue>&apos;https://sandbox-business-nosoftware-96342-de-17869e6c914.cs79.force.com/Admissions/s/article/&apos;</defaultValue>
+    <description>The URL for the Knowledge article or an external webpage. The URL is used in conversation by an education chatbot.</description>
     <externalId>false</externalId>
-    <inlineHelpText>URL used by Admissions Chatbot to redirect users to a complete articles site.
-This can be a Community or another full URL.</inlineHelpText>
+    <inlineHelpText>The URL for the Knowledge article or an external webpage. The URL is used in conversation by an education chatbot.</inlineHelpText>
     <label>Chatbot URL</label>
     <length>255</length>
     <required>false</required>
