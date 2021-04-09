@@ -279,7 +279,7 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>OK, here&apos;s what I found:</message>
+                <message>Got it.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
