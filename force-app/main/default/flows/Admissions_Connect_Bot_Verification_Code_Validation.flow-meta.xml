@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <description>provides a variable for the bot to consume, saying that the user has provided a code within the time limit</description>
+        <name>set_Timely_Response_failed</name>
+        <label>set Timely Response = failed</label>
+        <locationX>1448</locationX>
+        <locationY>345</locationY>
+        <assignmentItems>
+            <assignToReference>varWithTimeLimit</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSearchCounter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>provides a variable for the bot to consume, saying that the user has provided a code within the time limit</description>
+        <name>set_Timely_Response_passed</name>
+        <label>set Timely Response = passed</label>
+        <locationX>858</locationX>
+        <locationY>338</locationY>
+        <assignmentItems>
+            <assignToReference>varWithTimeLimit</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>evaluate_the_two_verification_codes</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>provides a variable for the bot to consume, saying that the user has not provided a valid code</description>
+        <name>set_Validated_Decision_failed</name>
+        <label>set Validated Decision = failed</label>
+        <locationX>978</locationX>
+        <locationY>659</locationY>
+        <assignmentItems>
+            <assignToReference>varValidated</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSearchCounter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>provides a variable for the bot to consume, saying that the user is valid</description>
+        <name>set_Validated_Decision_good</name>
+        <label>set Validated Decision = good</label>
+        <locationX>746</locationX>
+        <locationY>648</locationY>
+        <assignmentItems>
+            <assignToReference>varValidated</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varSearchCounter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>compares the two verification codes to see if they match</description>
+        <name>evaluate_the_two_verification_codes</name>
+        <label>evaluate the two verification codes</label>
+        <locationX>851</locationX>
+        <locationY>500</locationY>
+        <defaultConnector>
+            <targetReference>set_Validated_Decision_failed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Doesn&apos;t Match</defaultConnectorLabel>
+        <rules>
+            <name>Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varSystemVerificationCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>varUserVerificationFlow</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>set_Validated_Decision_good</targetReference>
+            </connector>
+            <label>Match</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks to see if the Response was provided within the time limit established by the initial flow.</description>
+        <name>Response_within_the_time_limit</name>
+        <label>Response within the time limit</label>
+        <locationX>1009</locationX>
+        <locationY>214</locationY>
+        <defaultConnector>
+            <targetReference>set_Timely_Response_failed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Outside time limit</defaultConnectorLabel>
+        <rules>
+            <name>Within_Time_Limit</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varExpiryTime</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.InterviewStartTime</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>set_Timely_Response_passed</targetReference>
+            </connector>
+            <label>Within Time Limit</label>
+        </rules>
+    </decisions>
+    <description>Compares the verification code entered by the user against the code generated by the system.  Returns TRUE or FALSE.
+Incorporates a time limit check.</description>
+    <interviewLabel>Admissions Connect Bot: Verification Code Validation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Admissions Connect Bot: Verification Code Validation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>890</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Response_within_the_time_limit</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>captures the Expiry DateTime variable from the Bot (which was issued by the Verification Code Send Flow). This is checked against the Interview StartTime of this Flow, to see that code was entered in time.</description>
+        <name>varExpiryTime</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varSearchCounter</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>the Verification Code that the system generated</description>
+        <name>varSystemVerificationCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>verification code entered by the User</description>
+        <name>varUserVerificationFlow</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>assessment of the verification codes, to see if they match</description>
+        <name>varValidated</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>captures if the response to the code entry was within the time limit</description>
+        <name>varWithTimeLimit</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

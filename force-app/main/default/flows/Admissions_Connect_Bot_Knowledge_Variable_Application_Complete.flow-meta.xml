@@ -11,13 +11,13 @@
             <assignToReference>varKnowledgeArticleSearch</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Admissions Counselor</stringValue>
+                <stringValue>Application Complete - Next Steps</stringValue>
             </value>
         </assignmentItems>
     </assignments>
-    <description>new version</description>
-    <interviewLabel>R&amp;A Bot: Knowledge Variable - Admissions Counselor {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>R&amp;A Bot: Knowledge Variable - Admissions Counselor</label>
+    <description>Allows the bot to search for a Knowledge Article</description>
+    <interviewLabel>Admissions Connect Bot: Knowledge Variable - Application Complete {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Admissions Connect Bot: Knowledge Variable - Application Complete</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -44,7 +44,7 @@
             <targetReference>set_Knowledge_Variable_Application_Deadlines</targetReference>
         </connector>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <variables>
         <name>varKnowledgeArticleSearch</name>
         <dataType>String</dataType>
