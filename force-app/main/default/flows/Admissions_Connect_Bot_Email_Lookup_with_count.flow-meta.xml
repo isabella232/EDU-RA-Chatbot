@@ -205,8 +205,8 @@
         </rules>
     </decisions>
     <description>Will look for an email address, will track the attempt counts.</description>
-    <interviewLabel>R&amp;A Bot: Email Lookup with Count {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>R&amp;A Bot: Email Lookup with Count</label>
+    <interviewLabel>Admissions Connect Bot: Email Lookup with count {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Admissions Connect Bot: Email Lookup with count</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>

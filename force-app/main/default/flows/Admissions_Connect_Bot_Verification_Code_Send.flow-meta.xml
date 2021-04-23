@@ -118,7 +118,7 @@
         <expression>{!varStartTime}+0.00694</expression>
     </formulas>
     <interviewLabel>R&amp;A Bot: Verification Code Send {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>R&amp;A Bot: Verification Code Send</label>
+    <label>Admissions Connect Bot: Verification Code Send</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>

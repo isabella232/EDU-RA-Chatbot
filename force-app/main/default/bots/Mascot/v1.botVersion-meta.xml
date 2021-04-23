@@ -139,7 +139,7 @@
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Search_Counter_Variable</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Search_Counter_Variable</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varSearchCounter</parameterName>
@@ -155,7 +155,7 @@
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Search_Counter_Variable</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Search_Counter_Variable</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varSearchCounter</parameterName>
@@ -239,7 +239,7 @@
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Knowledge_Variable_Application_Deadlines</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Knowledge_Variable_Application_Deadlines</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varKnowledgeArticleSearch</parameterName>
@@ -406,7 +406,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Knowledge_Variable_Admissions_Counselor</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Knowledge_Variable_Admissions_Counselor</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varKnowledgeArticleSearch</parameterName>
@@ -517,7 +517,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Knowledge_Variable_Application_Complete</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Knowledge_Variable_Application_Complete</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varKnowledgeArticleSearch</parameterName>
@@ -882,7 +882,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Knowledge_Variable_Application_In_Progress</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Knowledge_Variable_Application_In_Progress</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varKnowledgeArticleSearch</parameterName>
@@ -1093,7 +1093,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Email_Lookup_with_Count</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Email_Lookup_with_count</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varEmail</parameterName>
@@ -1120,15 +1120,15 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varContactId</parameterName>
-                        <type>Output</type>
-                        <variableName>ContactId</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
                         <parameterName>varEmailAttemptCount</parameterName>
                         <type>Output</type>
                         <variableName>Search_Counter</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varContactId</parameterName>
+                        <type>Output</type>
+                        <variableName>ContactId</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
@@ -1227,18 +1227,12 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Verification_Code_Send</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Verification_Code_Send</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varEmail</parameterName>
                         <type>Input</type>
                         <variableName>Email_Address</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varExpiryTime</parameterName>
-                        <type>Output</type>
-                        <variableName>Verification_Code_Expiration</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -1251,6 +1245,12 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                         <parameterName>varEnd</parameterName>
                         <type>Output</type>
                         <variableName>FlowErrors</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varExpiryTime</parameterName>
+                        <type>Output</type>
+                        <variableName>Verification_Code_Expiration</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
@@ -1282,18 +1282,18 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Verification_Code_Validation</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Verification_Code_Validation</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
-                    <invocationMappings>
-                        <parameterName>varExpiryTime</parameterName>
-                        <type>Input</type>
-                        <variableName>Verification_Code_Expiration</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
                     <invocationMappings>
                         <parameterName>varSearchCounter</parameterName>
                         <type>Input</type>
                         <variableName>Search_Counter_verification_code</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varExpiryTime</parameterName>
+                        <type>Input</type>
+                        <variableName>Verification_Code_Expiration</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -1315,15 +1315,15 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varValidated</parameterName>
-                        <type>Output</type>
-                        <variableName>User_Verified</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
                         <parameterName>varWithTimeLimit</parameterName>
                         <type>Output</type>
                         <variableName>Timely_Response</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varValidated</parameterName>
+                        <type>Output</type>
+                        <variableName>User_Verified</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
@@ -1427,7 +1427,7 @@ Note you only have 5 minutes to enter the code.</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Application_Status</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Application_Status</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varContactId</parameterName>
@@ -1442,9 +1442,9 @@ Note you only have 5 minutes to enter the code.</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varTaskListItemCount</parameterName>
+                        <parameterName>varApplicationCount</parameterName>
                         <type>Output</type>
-                        <variableName>TaskListItemCount</variableName>
+                        <variableName>ApplicationCount</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -1454,15 +1454,27 @@ Note you only have 5 minutes to enter the code.</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varChecklistMessage</parameterName>
+                        <parameterName>varChecklistCompletion</parameterName>
                         <type>Output</type>
-                        <variableName>ChecklistMessage</variableName>
+                        <variableName>ChecklistCompletion</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
                         <parameterName>varChecklistCompletionText</parameterName>
                         <type>Output</type>
                         <variableName>ChecklistCompletionText</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varChecklistMessage</parameterName>
+                        <type>Output</type>
+                        <variableName>ChecklistMessage</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varContactId</parameterName>
+                        <type>Output</type>
+                        <variableName>ContactId</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -1475,18 +1487,6 @@ Note you only have 5 minutes to enter the code.</message>
                         <parameterName>varTaskListMessage</parameterName>
                         <type>Output</type>
                         <variableName>TaskListMessage</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varApplicationCount</parameterName>
-                        <type>Output</type>
-                        <variableName>ApplicationCount</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varChecklistCompletion</parameterName>
-                        <type>Output</type>
-                        <variableName>ChecklistCompletion</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
@@ -1607,7 +1607,7 @@ Note you only have 5 minutes to enter the code.</message>
         <botDialogGroup>Application_Status</botDialogGroup>
         <botSteps>
             <botMessages>
-                <message>It appears you have multiple applications. Please talk to a member of our team.</message>
+                <message>Looks like you have multiple applications open. Contact an admissions counselor for help.</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
@@ -1675,18 +1675,12 @@ Can you please re-enter the code.</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Verification_Code_Validation</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Verification_Code_Validation</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varSearchCounter</parameterName>
                         <type>Input</type>
                         <variableName>Search_Counter_verification_code</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varSystemVerificationCode</parameterName>
-                        <type>Input</type>
-                        <variableName>Verification_Code_Issued</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -1696,21 +1690,27 @@ Can you please re-enter the code.</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
+                        <parameterName>varSystemVerificationCode</parameterName>
+                        <type>Input</type>
+                        <variableName>Verification_Code_Issued</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
                         <parameterName>varUserVerificationFlow</parameterName>
                         <type>Input</type>
                         <variableName>Verification_Code_Input</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varWithTimeLimit</parameterName>
-                        <type>Output</type>
-                        <variableName>Timely_Response</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
                         <parameterName>varSearchCounter</parameterName>
                         <type>Output</type>
                         <variableName>Search_Counter_verification_code</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varWithTimeLimit</parameterName>
+                        <type>Output</type>
+                        <variableName>Timely_Response</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -1853,7 +1853,7 @@ Please reach out to an Admissions Counsellor.</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Email_Lookup_with_Count</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Email_Lookup_with_count</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varEmail</parameterName>
@@ -1868,9 +1868,9 @@ Please reach out to an Admissions Counsellor.</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varContactId</parameterName>
+                        <parameterName>varEmailSearchResults</parameterName>
                         <type>Output</type>
-                        <variableName>ContactId</variableName>
+                        <variableName>varContactCount</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -1886,9 +1886,9 @@ Please reach out to an Admissions Counsellor.</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varEmailSearchResults</parameterName>
+                        <parameterName>varContactId</parameterName>
                         <type>Output</type>
-                        <variableName>varContactCount</variableName>
+                        <variableName>ContactId</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
@@ -2043,7 +2043,7 @@ Please reach out to an Admissions Counsellor.</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>R_A_Bot_Knowledge_Variable_Admissions_Counselor</invocationActionName>
+                    <invocationActionName>Admissions_Connect_Bot_Knowledge_Variable_Admissions_Counselor</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>varKnowledgeArticleSearch</parameterName>

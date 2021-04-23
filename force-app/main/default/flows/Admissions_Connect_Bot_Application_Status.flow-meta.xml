@@ -258,8 +258,8 @@
         </rules>
     </decisions>
     <description>Used  by Admissions Bot for Application Status Dialogues</description>
-    <interviewLabel>R&amp;A Bot: Knowledge Variable - Application Status {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>R&amp;A Bot: Application Status</label>
+    <interviewLabel>Admissions Connect Bot: Application Status {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Admissions Connect Bot: Application Status</label>
     <loops>
         <name>Checklist_Loop</name>
         <label>Checklist Loop</label>
