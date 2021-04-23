@@ -2,22 +2,22 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>50.0</apiVersion>
     <assignments>
-        <description>provides a baseline input to the Flow</description>
-        <name>Set_Search_Counter_Default_Value_to_0</name>
-        <label>Set Search Counter Default Value to 0</label>
+        <description>this sets a variable which is consumed by the R&amp;A Bot, so that the menu item response can jump straight to the Article.</description>
+        <name>set_Knowledge_Variable_Application_Deadlines</name>
+        <label>set Knowledge Variable: Application Deadlines</label>
         <locationX>176</locationX>
-        <locationY>158</locationY>
+        <locationY>233</locationY>
         <assignmentItems>
-            <assignToReference>varSearchCounter</assignToReference>
+            <assignToReference>varKnowledgeArticleSearch</assignToReference>
             <operator>Assign</operator>
             <value>
-                <numberValue>0.0</numberValue>
+                <stringValue>Checklist Items</stringValue>
             </value>
         </assignmentItems>
     </assignments>
-    <description>Sets the Counter Variable to 0</description>
-    <interviewLabel>R&amp;A Bot: Search Counter Variable {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>R&amp;A Bot: Search Counter Variable</label>
+    <description>Allows the Bot to search for the appropriate Knowledge Article</description>
+    <interviewLabel>Admissions Connect Bot: Knowledge Variable - Application In Progress {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Admissions Connect Bot: Knowledge Variable - Application In Progress</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -27,7 +27,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -39,18 +39,17 @@
     <processType>AutoLaunchedFlow</processType>
     <start>
         <locationX>50</locationX>
-        <locationY>0</locationY>
+        <locationY>50</locationY>
         <connector>
-            <targetReference>Set_Search_Counter_Default_Value_to_0</targetReference>
+            <targetReference>set_Knowledge_Variable_Application_Deadlines</targetReference>
         </connector>
     </start>
     <status>Active</status>
     <variables>
-        <name>varSearchCounter</name>
-        <dataType>Number</dataType>
+        <name>varKnowledgeArticleSearch</name>
+        <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
-        <scale>0</scale>
     </variables>
 </Flow>
