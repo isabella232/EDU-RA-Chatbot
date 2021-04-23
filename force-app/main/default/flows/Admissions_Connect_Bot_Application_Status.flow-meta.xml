@@ -335,14 +335,14 @@
             <field>Subject</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Application Questions</stringValue>
+                <stringValue>Application Details</stringValue>
             </value>
         </filters>
         <filters>
             <field>Subject</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Education History Questions</stringValue>
+                <stringValue>Education Details</stringValue>
             </value>
         </filters>
         <filters>
@@ -397,7 +397,7 @@
         <connector>
             <targetReference>Checklist_Loop</targetReference>
         </connector>
-        <filterLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6 OR 7)</filterLogic>
+        <filterLogic>1 AND 2 AND 3 AND (4 OR 5 )</filterLogic>
         <filters>
             <field>Status</field>
             <operator>NotEqualTo</operator>
@@ -423,21 +423,7 @@
             <field>Name</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Writing Supplement</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
                 <stringValue>Official Transcript</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Counselor Recommendation</stringValue>
             </value>
         </filters>
         <filters>
