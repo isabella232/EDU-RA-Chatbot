@@ -366,7 +366,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Temp_App_Status</targetBotDialog>
+                        <targetBotDialog>Application_Status_Main</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -383,7 +383,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Temp_App_Status</targetBotDialog>
+                    <targetBotDialog>Application_Status_Main</targetBotDialog>
                 </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
@@ -1372,7 +1372,7 @@ Note you only have 5 minutes to enter the code.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Temp_App_Status</targetBotDialog>
+                        <targetBotDialog>Application_Status_Main</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1411,7 +1411,7 @@ Note you only have 5 minutes to enter the code.</message>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Temp_App_Status</targetBotDialog>
+                    <targetBotDialog>Application_Status_Main</targetBotDialog>
                 </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
@@ -1605,7 +1605,7 @@ Note you only have 5 minutes to enter the code.</message>
             </botNavigation>
             <type>Navigation</type>
         </botSteps>
-        <developerName>Temp_App_Status</developerName>
+        <developerName>Application_Status_Main</developerName>
         <label>Application Status - Main</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1765,7 +1765,7 @@ Please reach out to an Admissions Counsellor.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Temp_App_Status</targetBotDialog>
+                        <targetBotDialog>Application_Status_Main</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
