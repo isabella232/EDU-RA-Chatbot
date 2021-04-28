@@ -1436,6 +1436,36 @@ Note you only have 5 minutes to enter the code.</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
+                        <parameterName>varChecklistCompletion</parameterName>
+                        <type>Output</type>
+                        <variableName>ChecklistCompletion</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varChecklistMessage</parameterName>
+                        <type>Output</type>
+                        <variableName>ChecklistMessage</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varTaskListMessage</parameterName>
+                        <type>Output</type>
+                        <variableName>TaskListMessage</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varContactId</parameterName>
+                        <type>Output</type>
+                        <variableName>ContactId</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>varDocChecklistItemCount</parameterName>
+                        <type>Output</type>
+                        <variableName>DocChecklistItemCount</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
                         <parameterName>GetAllApplications</parameterName>
                         <type>Output</type>
                         <variableName>ApplicationList</variableName>
@@ -1454,39 +1484,15 @@ Note you only have 5 minutes to enter the code.</message>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varChecklistCompletion</parameterName>
-                        <type>Output</type>
-                        <variableName>ChecklistCompletion</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
                         <parameterName>varChecklistCompletionText</parameterName>
                         <type>Output</type>
                         <variableName>ChecklistCompletionText</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varChecklistMessage</parameterName>
+                        <parameterName>varTaskListItemCount</parameterName>
                         <type>Output</type>
-                        <variableName>ChecklistMessage</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varContactId</parameterName>
-                        <type>Output</type>
-                        <variableName>ContactId</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varDocChecklistItemCount</parameterName>
-                        <type>Output</type>
-                        <variableName>DocChecklistItemCount</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>varTaskListMessage</parameterName>
-                        <type>Output</type>
-                        <variableName>TaskListMessage</variableName>
+                        <variableName>TaskListItemCount</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
