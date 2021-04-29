@@ -177,7 +177,7 @@
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Review_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>Check_Application_Status</targetBotDialog>
@@ -330,7 +330,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
             </botNavigation>
             <type>Navigation</type>
         </botSteps>
-        <developerName>Look_up_Application_Deadlines</developerName>
+        <developerName>Review_Application_Deadlines</developerName>
         <label>Review Application Deadlines</label>
         <mlIntent>What_are_the_Application_Deadlines</mlIntent>
         <mlIntentTrainingEnabled>true</mlIntentTrainingEnabled>
@@ -458,7 +458,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Review_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>Check_Application_Status</targetBotDialog>
@@ -619,7 +619,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                     <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Review_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
@@ -628,7 +628,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
             </botNavigation>
             <type>Navigation</type>
         </botSteps>
-        <developerName>Return_Application_Status_Knowledge_Article</developerName>
+        <developerName>Application_Complete</developerName>
         <label>Application Complete</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -964,7 +964,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                     <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Review_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
@@ -973,7 +973,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
             </botNavigation>
             <type>Navigation</type>
         </botSteps>
-        <developerName>Return_Checklist_Status_Knowledge_Article</developerName>
+        <developerName>Application_in_Progress</developerName>
         <label>Application in Progress</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
@@ -1510,7 +1510,7 @@ Note you only have 5 minutes to enter the code.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>No_Applications</targetBotDialog>
+                        <targetBotDialog>Applications_are_null</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1534,7 +1534,7 @@ Note you only have 5 minutes to enter the code.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Return_Application_Status_Knowledge_Article</targetBotDialog>
+                        <targetBotDialog>Application_Complete</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1558,7 +1558,7 @@ Note you only have 5 minutes to enter the code.</message>
             <botSteps>
                 <botNavigation>
                     <botNavigationLinks>
-                        <targetBotDialog>Return_Checklist_Status_Knowledge_Article</targetBotDialog>
+                        <targetBotDialog>Application_in_Progress</targetBotDialog>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
@@ -1596,7 +1596,7 @@ Note you only have 5 minutes to enter the code.</message>
                     <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Review_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>End_Chat</targetBotDialog>
@@ -1993,8 +1993,8 @@ Please reach out to an Admissions Counsellor.</message>
             </botNavigation>
             <type>Navigation</type>
         </botSteps>
-        <developerName>No_Applications</developerName>
-        <label>Applications is Null</label>
+        <developerName>Applications_are_null</developerName>
+        <label>Applications are Null</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
@@ -2008,7 +2008,7 @@ Please reach out to an Admissions Counsellor.</message>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Review_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>Contact_an_Admissions_Counselor</targetBotDialog>
@@ -2101,7 +2101,7 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <targetBotDialog>Look_up_Application_Deadlines</targetBotDialog>
+                    <targetBotDialog>Review_Application_Deadlines</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>Check_Application_Status</targetBotDialog>
