@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>X1721_Test</fullName>
+        <categories>1721 Sample</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>1721 Test</shortDescription>
+        <value>First Label
+Second Label
+Third Label</value>
+    </labels>
+</CustomLabels>
