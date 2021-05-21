@@ -573,6 +573,9 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                 <optionalCollect>false</optionalCollect>
                 <quickReplyType>Static</quickReplyType>
                 <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <retryMessages>
+                    <message>It should be something like &quot;Yes&quot;</message>
+                </retryMessages>
                 <type>Collect</type>
             </botVariableOperation>
             <type>VariableOperation</type>
@@ -603,7 +606,43 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                 <leftOperandName>KARequest</leftOperandName>
                 <leftOperandType>ConversationVariable</leftOperandType>
                 <operatorType>Equals</operatorType>
+                <rightOperandValue>yes</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>{!AppDeadlineKnowledgeResults[0].Summary}. Link:{!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
+                <botMessages>
+                    <message>Can I help you with anything else?</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>KARequest</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
                 <rightOperandValue>No</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>Can I help you with anything else?</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>KARequest</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>no</rightOperandValue>
             </botStepConditions>
             <botSteps>
                 <botMessages>
@@ -774,7 +813,73 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                 <leftOperandName>AppStatusChecklistQ</leftOperandName>
                 <leftOperandType>ConversationVariable</leftOperandType>
                 <operatorType>Equals</operatorType>
+                <rightOperandValue>yes</rightOperandValue>
+            </botStepConditions>
+            <botStepConditions>
+                <leftOperandName>DocChecklistItemCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>GreaterThan</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botStepConditions>
+                <leftOperandName>TaskListItemCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>Alright, here are the remaining required items.</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
+                <botMessages>
+                    <message>{!ChecklistMessage}</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>AppStatusChecklistQ</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
                 <rightOperandValue>Yes</rightOperandValue>
+            </botStepConditions>
+            <botStepConditions>
+                <leftOperandName>TaskListItemCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>GreaterThan</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botStepConditions>
+                <leftOperandName>DocChecklistItemCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>Alright, here are the remaining required items.</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
+                <botMessages>
+                    <message>{!TaskListMessage}</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>AppStatusChecklistQ</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>yes</rightOperandValue>
             </botStepConditions>
             <botStepConditions>
                 <leftOperandName>TaskListItemCount</leftOperandName>
@@ -841,7 +946,59 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                 <leftOperandName>AppStatusChecklistQ</leftOperandName>
                 <leftOperandType>ConversationVariable</leftOperandType>
                 <operatorType>Equals</operatorType>
+                <rightOperandValue>yes</rightOperandValue>
+            </botStepConditions>
+            <botStepConditions>
+                <leftOperandName>TaskListItemCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>GreaterThan</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botStepConditions>
+                <leftOperandName>DocChecklistItemCount</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>GreaterThan</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>Alright, here are the remaining required items.</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <botSteps>
+                <botMessages>
+                    <message>{!ChecklistMessage}
+{!TaskListMessage}</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>AppStatusChecklistQ</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
                 <rightOperandValue>No</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Application_Additional_Menu</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>AppStatusChecklistQ</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>no</rightOperandValue>
             </botStepConditions>
             <botSteps>
                 <botNavigation>
@@ -939,7 +1096,42 @@ Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
                 <leftOperandName>AppChecklistKAQ</leftOperandName>
                 <leftOperandType>ConversationVariable</leftOperandType>
                 <operatorType>Equals</operatorType>
+                <rightOperandValue>yes</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botMessages>
+                    <message>{!AppDeadlineKnowledgeResults[0].Summary}
+
+Learn More: {!AppDeadlineKnowledgeResults[0].Chatbot_URL__c}</message>
+                </botMessages>
+                <type>Message</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>AppChecklistKAQ</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
                 <rightOperandValue>No</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Application_Additional_Menu</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <type>Navigation</type>
+            </botSteps>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>AppChecklistKAQ</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>no</rightOperandValue>
             </botStepConditions>
             <botSteps>
                 <botNavigation>
