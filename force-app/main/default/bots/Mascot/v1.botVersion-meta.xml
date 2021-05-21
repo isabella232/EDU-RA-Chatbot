@@ -297,7 +297,7 @@
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Got it.</message>
+                <message>OK, here&apos;s what I found:</message>
             </botMessages>
             <type>Message</type>
         </botSteps>
