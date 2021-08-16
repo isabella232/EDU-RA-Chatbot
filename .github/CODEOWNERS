@@ -1,3 +1,5 @@
+#ECCN: Open Source
+
 # Python
 *.py                  @SalesforceFoundation/release-engineering-reviewers
 
