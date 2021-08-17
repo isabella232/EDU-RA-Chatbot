@@ -1,4 +1,5 @@
 #ECCN: Open Source
+#GUSINFO: Recruiting & Admissions, Admissions Chatbot
 
 # Python
 *.py                  @SalesforceFoundation/release-engineering-reviewers
